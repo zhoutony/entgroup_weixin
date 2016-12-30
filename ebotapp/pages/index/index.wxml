@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view id="header">
+   <image style="width: 40rpx; height: 40rpx;top:10rpx;position:absolute;left:20rpx;" src="../../image/icon.png"></image>
+   <icon class="search" type="search" size="25"/>
+</view>
+<view class="section section_gap swiper">
+    <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for-items="{{background}}">
+        <swiper-item>
+            <view class="swiper-item bc_{{item}}"></view>
+        </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
