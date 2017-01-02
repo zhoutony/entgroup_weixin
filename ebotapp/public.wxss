@@ -1,0 +1,226 @@
+/**aui-title **/
+.aui-title text,
+.aui-title button{
+    display:block;
+}
+.aui-title{
+    padding:0 20rpx;
+    height:96rpx;
+}
+
+.aui-title text{
+    font-size:28rpx;
+}
+/**aui-radio**/
+.aui-radio{
+    /*padding:10rpx 12rpx;*/
+}
+.aui-box-office{
+    position:fixed;
+    z-index:10;
+    width: 100%;
+    height: 100%;
+}
+.flexbox-cc{
+    position:fixed;
+    background-color:#fff;
+    border-bottom: 30rpx;
+    bottom: 0rpx;
+    
+}
+.WarpFixedBg {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.box-radio .radio{
+    position:relative;
+    border:2rpx solid #eee;
+    font-size:24rpx;
+    padding:22rpx 10rpx;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align:center;
+    width:28%;
+    margin-bottom:10rpx;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    border-radius: 6rpx;
+}
+.radio-bare{
+    border:0rpx solid #fff!important;
+}
+.box-radio .radio radio{
+    position:absolute;
+    display:block;
+    width:100%;
+    height:100%;
+    top:0;
+    opacity: 0;
+}
+.box-radio .select-radio{
+    border-color:#7f1084;
+    color:#fff;
+    background-color: #7f1084;
+}
+.aui-city{
+    position: fixed;
+    z-index: 10;
+    background-color: #fff;
+}
+.aui-city .box-city{
+    border-top:1rpx solid #ddd;
+    border-bottom:1rpx solid #ddd;
+    font-size:24rpx;
+    line-height:66rpx;
+    padding:0 20rpx;
+    background:#f1f3f7;
+}
+.aui-city .box-city-none{
+    border-color:transparent;
+    background:white;
+}
+.aui-city .box-radio .radio{
+    width:32%;
+}
+.mr5 {
+    margin-right: 10rpx
+}
+.head-center,.side-menu li {
+    width: 100%;
+    text-align: center
+}
+.left {
+    left: 0
+}
+
+.right {
+    right: 5px
+}
+.head-icon {
+    text-align: center;
+    display:block;    
+
+     min-width:88rpx;
+    padding: 0 5px;
+    max-height: 100%;
+    font-size: 28rpx;
+}
+.comm-top .right {
+    font-size: 28rpx
+}
+.head-center {
+    vertical-align: middle;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px
+}
+/**nav-tab**/
+.nav-tab .tab{
+    display:block;
+    text-align:center;
+    position:relative;
+    font-size:30rpx;
+    padding:23rpx 0;
+   
+    border-bottom:4rpx solid #fff;
+}
+.nav-tab .tab:after{
+    content: '';
+    display:block;
+    height:4rpx;
+    background:red;
+    position:absolute;
+    left:0;
+    bottom:0;
+}
+.nav-tab .navigarot-hover,
+.nav-tab .navigarot-select{
+   border-bottom-color:#7f1084;
+}
+.city-tab{
+background:#eee;
+}
+.city-tab .tab{
+    
+    font-size:24rpx;
+    width:70rpx;
+    text-align:center;
+    padding:7.9rpx 0;
+}
+/**table Begin**/
+
+.table-scroll .tr .td {
+	min-height: 108rpx;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	justify-content: center;
+}
+.table-scroll  .small_tr .td{
+    min-height:80rpx;
+}
+
+.table-scroll .table-content .tr .td {
+	-webkit-box-align: center;
+	align-items: center;
+}
+
+.table-scroll .td {
+	padding: 0;
+	line-height: 1;
+}
+
+.table-scroll .td text {
+	font-size: 24rpx;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.table-scroll .td-num {
+	width: 70rpx;
+	text-align: center;
+}
+
+.table-scroll .td-name {
+	width: 250rpx;
+}
+
+.table-scroll .td-name .moviename {
+	font-size: 28rpx;
+	padding-bottom: 10rpx;
+}
+
+.table-scroll .td-name .otherinfo,
+.table-scroll .td-name .otherinfo text {
+	text-align: left;
+	font-size: 20rpx;
+}
+
+.table-content {
+	white-space: nowrap;
+	width: 430rpx;
+}
+
+.table-content .td {
+	padding: 0 30rpx;
+	min-width: 90rpx;
+	text-align: center;
+}
+
+.table-scroll .tr:nth-child(odd) .td {
+	background: #f5f8fa;
+}
+
+.m-hide{
+    display: none;
+}
+
+/**table end**/

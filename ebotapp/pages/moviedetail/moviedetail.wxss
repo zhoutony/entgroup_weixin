@@ -1,0 +1,138 @@
+.movie-info{
+    padding:28rpx;
+}
+.movie-info .title text{
+    font-size:30rpx;
+}
+.movie-info .title text,
+.movie-info .title button{
+    display:inline-block;
+    vertical-align: middle;
+}
+.movie-info .title button{
+    margin-left:20rpx;
+}
+.movie-info .time text{ 
+    font-size:24rpx;
+}
+
+.movie-other .flex-item{
+    border-left:2rpx solid #eee;
+    border-bottom:2rpx solid #eee;
+    padding:20rpx 10rpx 12rpx 40rpx;
+}
+.movie-other .flex-item:first-child{
+    border-left:none;
+}
+.movie-other .flex-wrp:last-child .flex-item{
+    border-bottom:none;
+}
+.movie-other .label{
+    display:block;
+    font-size:24rpx;
+    color:#888;
+    padding-bottom:10rpx;
+}
+.movie-other .number{
+    font-size:36rpx;
+}
+.movie-other .sub{
+    font-size:22rpx;
+}
+
+.movie-timebox .movie-title {
+    height:80rpx;
+    line-height:80rpx;
+}
+.movie-timebox .movie-title .box-title{
+    text-align:center;
+    font-size:28rpx;
+}
+.movie-timebox .movie-title .box-btn{
+    width:80rpx;
+    line-height:80rpx;
+    text-align:center;
+    background:#f5f8fa;
+}
+.movie-timebox .movie-title .box-btn .btn-cancel{
+    vertical-align: middle;
+}
+.movie-timebox .movie-time text{
+    font-size:24rpx;
+    color:#333;
+}
+.movie-timebox .movie-time {
+    line-height:80rpx;
+    padding:0 20rpx;
+}
+.movie-timebox .movie-time  txt,
+.movie-timebox .movie-time .icon-up{
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.movie-timebox .movie-time .icon-up{
+    margin-left:10rpx;
+}
+.movie-timebox .movie-time  .all-film{
+    text-align:right;
+}
+ 
+
+.film-details .box-title{
+    line-height:80rpx;
+    padding:0 20rpx;
+}
+.film-details .box-title .title{
+    font-size:28rpx;
+}
+.film-datails .scroll-view{
+    position:absolute;
+    left:0;
+    top:0;
+    overflow:hidden;
+}
+.box-table .th text,
+.box-table .td text,
+.box-table .box-info{
+    font-size:26rpx;
+}
+.box-table .box-info{
+    color:#888;
+}
+
+.box-table .staic .tr{
+    width:186rpx;
+
+    
+}
+.box-table .box-scroll .th,
+.box-table .box-scroll .td{
+    width:160rpx;
+    
+
+}
+.box-table .tr{
+    min-height:108rpx;
+    line-height:108rpx;
+}
+.box-table .box-time{
+    padding-top:16rpx;
+}
+.box-table .box-time,
+.box-table .box-info{
+    line-height:1.3;
+}
+.box-table .box-info,
+.box-table .box-info text{
+    font-size:20rpx;
+    line-height:1;
+}
+.box-table  .tr .th,
+.box-table .tr .td{
+    text-align:center;
+    word-break:break-all;
+}
+.box-table  .tr:nth-child(odd){
+    background:#f5f8fa;
+}

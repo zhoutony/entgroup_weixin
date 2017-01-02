@@ -1,17 +1,263 @@
 <!--index.wxml-->
-<view id="header">
+<import src="../common/city.wxml" />
+<import src="../common/boxofficeOption.wxml" />
+<!--<view id="header" style="dispay:none;">
    <image style="width: 40rpx; height: 40rpx;top:10rpx;position:absolute;left:20rpx;" src="../../image/icon.png"></image>
-   <icon class="search" type="search" size="25"/>
-</view>
+   <icon class="search" color="#3e3e3e" type="search" size="25"/>
+</view>-->
+<template is="movielineAndCity" data="{{_movielineAndCityClass:movielineAndCityClass}}"/>
+
+<template is="boxofficeOption" data="{{_boxofficeOptionClass: boxofficeOptionClass}}"/>
+
 <view class="section section_gap swiper">
-    <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for-items="{{background}}">
+    <image class="moviebg" src="../../image/moviebg.jpg"></image>
+   <view class="icon-before">
+    <text>即将上映</text>
+   </view> 
+    <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <!--<block wx:for-items="{{background}}">
         <swiper-item>
             <view class="swiper-item bc_{{item}}"></view>
+        </swiper-item>
+    </block>-->
+    <block wx:for-items="{{comingMovieList}}">
+        <swiper-item>
+            <view class="swiper-item" id="{{item.EnMovieID}}" bindtap="gotomoviedetail">
+                <view class="title">
+                    <text>{{item.MovieName}}</text>
+                </view>
+                <!--title end-->
+                <view class="time">
+                    <text class="gray_888">{{item.ReleaseDate}} 中国上映</text>
+                </view>
+                <view class="otherinfo">
+                    <view class="number">
+                        <text>{{item.BuyTicketIndex}}</text>
+                    </view>
+                    <text class="infotxt">购票指数</text>
+                </view>
+            </view>
         </swiper-item>
     </block>
   </swiper>
 </view>
+<view class="date-box-titer">
+    <picker class="picker-date-home" mode="date" value="{{date}}" start="2013-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+            {{date}}
+        </view>
+        <view class="jt-core"></view>
+    </picker>
+    <image class="screen-icon" src="../../image/screen.png" bindtap="tapShowScreen"></image>
+</view>
+<view class="block-data">
+    <view class="choose-warp_data pt0 pb5" style="height: 50rpx;">
+        <view id="selDate_PerBtn" style="width: 13% !important;" class="tal black">
+            <view class="jt-core1"></view>
+            <text class="btn-pre" bindtap="tapPrevDay">前一天</text>
+        </view>
+        <view class="date-choose" style="width: 74% !important;">
+                <text class="fwb" id="selOption_Text">全国大盘</text>
+        </view>
+        <view id="selDate_NextBtn" style="width: 13% !important;" class="tal black">
+            <text bindtap="tapNextDay">后一天</text>
+            <view class="jt-core1 jt-core2"></view>
+        </view>
+    </view>
+    <view class="default-color pb10">
+        <text class="default-color pb10 h3" id="sumBoxOffice_Info">{{totalBoxOffice}}</text>
+        <text class="h6">{{totalBoxOfficeUnits}}</text>
+    </view>
+</view>
+<view class=" bk-top-10"></view>
+<view class="flexbox-vc aui-title ">
+    <text class="flex-1">票房明细</text>
+    <view class="box-btn">
+    <button class="btn-link-none" plain="true" size="mini" hover-class="none" bindtap="tapBoxofficeOptionShow">+更多指标</button>
+    </view> 
+</view>
+<!--aui-title end-->
+<view class="flexbox table-scroll"> 
+    <view class="table-fixed">
+        <view class=" flexbox-vc  tr small_tr" >
+            <view class=" td td-num"  >
+                 <text></text>
+            </view>
+            <view class="td td-name"  >
+                <text>影片名称</text>
+            </view>
+        </view>
+        <!--tr end-->
+        <block wx:for-items="{{movie_list}}" wx:key="{{index}}">
+         <view class=" flexbox-vc  tr" id="{{item.EntMovieID}}" bindtap="gotomoviedetail">
+            <view class=" td td-num">
+                 <text>{{item.Irank}}</text>
+            </view>
+            <view class="td td-name">
+                <text class="moviename">{{item.MovieName}}</text>
+                <view class="otherinfo">上映
+                    <text class="purple_7f1084">{{item._columnList[3]}}</text>
+                    天 累计
+                      <text class="purple_7f1084">{{item.movieTotalBoxOffices.num}}</text>
+                    {{item.movieTotalBoxOffices.units}}
+                </view>
+            </view>
+        </view>
+        <!--tr end-->
+        </block> 
+    </view>
+    <!--fixed end-->
+    <view class="flex-1 table-content">
+       <scroll-view class="table " scroll-x="true" style="width:100%">
+            <view class="tr flexbox-vc flex-wrap-nwrap small_tr"  >
+                <view class="td  ">
+                    <text>票房(万)</text>
+                </view>
+                <view class="td">
+                    <text>排座占比</text>
+                </view>
+                <view class="td">
+                    <text>上座率</text>
+                </view>
+                <view class="td">
+                    <text>票房(万)</text>
+                </view>
+                <view class="td">
+                    <text>排座占比</text>
+                </view>
+                <view class="td">
+                    <text>上座率</text>
+                </view>
+                <view class="td">
+                    <text>票房(万)</text>
+                </view>
+                <view class="td">
+                    <text>排座占比</text>
+                </view>
+                <view class="td">
+                    <text>上座率</text>
+                </view>
+                <view class="td">
+                    <text>票房(万)</text>
+                </view>
+                <view class="td">
+                    <text>排座占比</text>
+                </view>
+                <view class="td">
+                    <text>上座率</text>
+                </view>
+            </view>
+            <!--tr end-->
+            <block wx:for-items="{{movie_list}}" wx:key="{{index}}">
+         <view class=" flexbox-vc  tr" id="{{item.EntMovieID}}" bindtap="gotomoviedetail">
+           <view class="td  ">
+                    <text>{{item.BoxOffice}}</text>
+                </view>
+                <view class="td">
+                    <text>20.3%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+                <view class="td">
+                    <text>11.4%</text>
+                </view>
+        </view>
+        <!--tr end-->
+        </block> 
+       </scroll-view>
+    </view>
+    <!--table-content end-->
+   
+</view>
+<!--table-scroll end-->
 
+
+<!--<view class="piaof-data">
+    <view class="title-com bk-top-10">
+        <text>票房明细</text>
+        <view id="selIndexLow_Btn" class="default-color sel-indexlow-btn">
+            <text>+更多指标</text>
+        </view>
+    </view>
+    <view id="tableWrap" class="table-box">
+        <view class="fr tableRight" style="width: 100%;"> 
+            <view class="tableRight_Wrap" style="width: 100%; transform: translate(0px, 0px) translateZ(0px);"> 
+            <view class="tableRight_Info" style="height: 100%;"> 
+                <view class="tableHead table" style="height: 76rpx;">
+                    <view style="height: 100%;">
+                        <view class="bgetit" style="height: 100%;"> 
+                            <view class="td" tag="" style="width:82rpx;padding:30rpx 0px;"></view> 
+                            <view class="td" tag="" style="width:262rpx;padding:30rpx 0px;">
+                                <text class="tal1">影片名称</text>
+                            </view>
+                            <view class="td" tag="" style="width:142rpx;padding:30rpx 0px;">
+                                <text class="tal1">票房(万)</text>
+                                <view class="up"></view>
+                            </view>
+                            <view class="td" tag="" style="width:142rpx;padding:30rpx 0px;">
+                                <text class="tal1">排座占比</text>
+                            </view>
+                            <view class="td" tag="" style="width:112rpx;padding:30rpx 0px;">
+                                <text class="tal1"> 上座率 </text>
+                            </view>
+                        </view> 
+                    </view>
+                </view>
+                <view class="tableList table"> 
+                    <view class="table-tr" >
+                        <block wx:for-items="{{movie_list}}" wx:key="{{index}}">
+                            <view class="tr" id="{{item.EntMovieID}}" style="height:60rpx;" bindtap="gotomoviedetail"> 
+                                <view class="td" style="width:70rpx;"> <text class="">{{item.Irank}}</text> </view> 
+                                <view class="td" style="width:260rpx;">
+                                    <view class="tal2">
+                                        <view class="fwb14">
+                                            <text>{{item.MovieName}}</text>
+                                        </view>
+                                        <view class="gray"><text>上映</text>
+                                            <text class="default-color">{{item._columnList[3]}}</text>天 累计<text class="default-color">{{item.movieTotalBoxOffices.num}}</text>{{item.movieTotalBoxOffices.units}}
+                                        </view>
+                                    </view>
+                                </view> 
+                                <view class="td" style="width:142rpx;text-align:left;">
+                                    <text class="fwb14">{{item.BoxOffice}}</text>
+                                </view> 
+                                <view class="td" style="width:132rpx;text-align:left;">
+                                    <text class="fwb14">20.4%</text>
+                                </view> 
+                                <view class="td" style="width:100rpx;text-align:left;">
+                                    <text class="fwb14">17.4%</text>
+                                </view> 
+                            </view>
+                        </block>
+                    </view>
+                </view> 
+            </view>
+        </view>
+    </view>
+</view>-->
 

@@ -1,0 +1,330 @@
+<import src="../common/city.wxml" />
+<import src="../common/movieline.wxml" />
+<view class="flex-wrp movie-info">
+    <view class="flex-item">
+        <view class="title">
+            <text>铁道飞虎</text>
+            <button class="btn-link" plain="true" size="mini" style="display: none;">+对比</button>
+        </view>
+        <!--title end-->
+        <view class="time">
+            <text class="box-label gray_888">上映日期</text>
+            <text class="box-time gray_888">2016-12-23</text>
+        </view>
+        <!--time end-->
+    </view>
+    <view class="box-icon flex-wrap-vc" style="display: none;">
+        <view class="icon-right"></view>
+    </view>
+</view>
+<!--movie-info end-->
+
+<view class="movie-other bk-top-10">
+    <view class="flex-wrp">
+        <view class="flex-item">
+            <text class="label">已上映</text>
+            <text class="numbar red_ed6c55">11</text>
+            <text class="sub red_ed6c55">天</text>
+        </view>
+        <view class="flex-item">
+            <text class="label">累计票房</text>
+            <text class="numbar blue_6688fc">4.96</text>
+            <text class="sub blue_6688fc">亿</text>
+        </view>
+        <view class="flex-item">
+            <text class="label">点映票房</text>
+            <text class="numbar orange_f5b655">277.0</text>
+            <text class="sub orange_f5b655">万</text>
+        </view>
+     </view>   
+     <view class="flex-wrp">   
+        <view class="flex-item">
+            <text class="label">首映日票房</text>
+            <text class="numbar red_ed6c55">5,374.8</text>
+            <text class="sub red_ed6c55">万</text>
+        </view>
+        <view class="flex-item">
+            <text class="label">首周票房</text>
+            <text class="numbar blue_6688fc">4.96</text>
+            <text class="sub blue_6688fc">亿</text>
+        </view>
+        <view class="flex-item">
+            <text class="label">首周末票房</text>
+            <text class="numbar orange_f5b655">2.14</text>
+            <text class="sub orange_f5b655">亿</text>
+        </view>
+    </view>
+    <!--flex-wrp end-->
+</view>
+<!--movie-ohter end-->
+<view class="movie-timebox bk-top-10">
+    <view class="flex-wrp movie-title">
+        <view class="flex-item box-title">
+            <text class="purple_7f1084">时段</text>
+        </view>
+        <view class="flex-wrap-vc box-btn">
+           <view class="icon-add">
+                <image src="../../image/icon-add.png"></image>
+           </view>
+        </view>
+    </view>
+    <view class="flex-wrap-vc movie-time bk-top-1">
+        <view class="flex-item  time">
+            <text>2016-12-22至12-31</text>
+             <view class="icon-up"></view>
+        </view>
+        <!--time end-->
+        <view clas="all-film">
+            <text>全部院线</text>
+            <view class="icon-up"></view>
+        </view>
+    </view>
+    <!--movie-time end-->
+    <view class="movie-echart bk-top-10">
+        <view style="height:80rpx;">
+
+        </view>
+    </view>
+</view>
+<!--movie-timebox end-->
+<view class="film-details bk-top-10">
+    <view class="flex-wrap-vc box-title">
+        <view class="flex-item">
+            <text class="title">票房明细</text>
+        </view>
+        <view class="box-btn flex-wrap-vc">
+            <button class="btn-link-none" plain="true" size="mini">+更多指标</button>
+        </view>
+    </view>
+    <!--box-title end-->
+    <view class="box-table">
+        <view class="flex-wrp">
+            <view class="staic">
+                 <view class="tr">
+                    <view class="th">
+                        <text>日期</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="tr">
+                    <view class="td">
+                        <text>合计</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="tr">
+                    <view class="th">
+                        <view class="box-time">
+                            <text>2016-12-31</text>
+                        </view>
+                        <view class="box-info">
+                            <text class="week">周五</text>
+                            上映
+                            <text class="number <text>日期</text>">8</text>
+                            天
+                        </view>
+                    </view>
+                 </view>
+                 <!--tr end-->
+            </view>
+            <view class="flex-item box-scroll">
+                <scroll-view class="scroll-view" scroll-x="true" >
+                 <view class="flex-wrp tr">
+                    <view class="th">
+                        <text>票房</text>
+                    </view>
+                     <view class="th">
+                        <text>票房占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次</text>
+                    </view> <view class="th">
+                        <text>票房</text>
+                    </view>
+                     <view class="th">
+                        <text>票房占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                  <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                <view class="flex-wrp tr">
+                    <view class="th">
+                        <text>票房</text>
+                    </view>
+                     <view class="th">
+                        <text>票房占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                  <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                <view class="flex-wrp tr">
+                    <view class="th">
+                        <text>票房</text>
+                    </view>
+                     <view class="th">
+                        <text>票房占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次占比</text>
+                    </view>
+                     <view class="th">
+                        <text>场次</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                  <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                 <view class="flex-wrp tr">
+                    <view class="td">
+                        <text>42,345.2</text>
+                    </view>
+                    <view class="td">
+                        <text>31.1%</text>
+                    </view>
+                    <view class="td">
+                        <text>11.6%</text>
+                    </view>
+                    <view class="td">
+                        <text>10</text>
+                    </view>
+                 </view>
+                 <!--tr end-->
+                
+            </scroll-view>
+            </view>
+            
+        </view>
+    </view>
+    <!--box-table end-->
+</view>

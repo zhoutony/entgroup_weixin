@@ -1,0 +1,297 @@
+<template name="movielineAndCity">
+    <view class="aui-city {{_movielineAndCityClass}}">
+        <view class="flexbox-vc comm-top">
+			<view id="selOption_OutBtn" class="head-icon left default-color" bindtap="tapHideScreen">
+                <!--<icon type="clear" size="25"></icon>-->
+                <text>取消</text>
+            </view>
+			<view class="head-center">更多条件</view>
+			<view id="selOption_YesBtn" class="head-icon right mr5 default-color">确认</view>
+		</view>
+        <view class="flexbox nav-tab">
+            <view class="flex-1 tab navigarot-select" url="url" open-type="switchTab" hover-class="navigarot-hover">院线</view>        
+            <view  class="flex-1 tab" url="url" open-type="switchTab" hover-class="navigarot-hover">地域</view>
+        </view>
+        <view class="flexbox city-scroll">
+            <view class="flex-1">
+                <scroll-view scroll-y="true" style="height:1160rpx;">
+                    <!--Begin-->
+                        <view class="box-city box-city-none">
+            <text>城市级别</text>
+        </view>
+        <view class="aui-radio">
+            <radio-group class="flexbox-hj flex-wrap box-radio" bindchange="radioChange">
+                <label class="radio select-radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    
+                </label>
+            </radio-group>
+        </view>
+        <!--aui-radio end-->
+        <view class="box-city">
+            <text>A</text>
+        </view>
+        <view class="aui-radio">
+            <radio-group class="flexbox-hj flex-wrap box-radio" bindchange="radioChange">
+            <label class="radio select-radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio select-radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio select-radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio select-radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio select-radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio select-radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线" checked="true" />
+                    全部院线
+                </label>
+                <label class="radio"  >
+                    <radio value="全部院线"  />
+                    全部院线
+                </label>
+            </radio-group>
+        </view>
+        <!--aui-radio end-->
+                    <!--End-->
+                </scroll-view>
+            </view>
+            <view class="city-tab">
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">#</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">A</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">B</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">C</navigator>
+                    <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">D</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">E</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">F</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">G</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">H</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">I</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">J</navigator>  
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">k</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">L</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">M</navigator>  
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">N</navigator>    
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">O</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">P</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">Q</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">R</navigator>  
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">S</navigator>
+            <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">T</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">U</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">V</navigator>   
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">W</navigator>
+                <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">X</navigator>
+                    <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">Y</navigator>
+                    <navigator  class="flex-1 tab" url="url" open-type="redirect" hover-class="navigarot-hover">Z</navigator>       
+            </view>
+        </view>
+    </view>
+</template>
+<!--aui-city-->
