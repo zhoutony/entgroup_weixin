@@ -1,6 +1,7 @@
 <!--index.wxml-->
 <import src="../common/city.wxml" />
 <import src="../common/boxofficeOption.wxml" />
+<import src="../common/load.wxml" />
 <!--<view id="header" style="dispay:none;">
    <image style="width: 40rpx; height: 40rpx;top:10rpx;position:absolute;left:20rpx;" src="../../image/icon.png"></image>
    <icon class="search" color="#3e3e3e" type="search" size="25"/>
@@ -8,6 +9,8 @@
 <template is="movielineAndCity" data="{{_movielineAndCityClass:movielineAndCityClass}}"/>
 
 <template is="boxofficeOption" data="{{_boxofficeOptionClass: boxofficeOptionClass}}"/>
+
+<template is="loading" data="{{_hiddenLoading: hiddenLoading, title:'正在加载'}}"/>
 
 <view class="section section_gap swiper">
     <image class="moviebg" src="../../image/moviebg.jpg"></image>

@@ -16,14 +16,17 @@ Page({
         totalBoxOfficeUnits: '',
         comingMovieList: [],
         movielineAndCityClass: 'm-hide',
-        boxofficeOptionClass: 'm-hide'
+        boxofficeOptionClass: 'm-hide',
+        hiddenLoading: true
     },
     onLoad: function () {
         this._loadData();
         this.loadComingMovieListTop();
     },
     _loadData: function(){
-        wx.showNavigationBarLoading();
+        this.setData({
+            hiddenLoading: false
+        })
         let that = this,
             toDay = this.data.date;
         this.pageIndex = 1;
@@ -64,7 +67,8 @@ Page({
             that.setData({
                 totalBoxOffice: _totalBoxOffice.num,
                 totalBoxOfficeUnits: _totalBoxOffice.units,
-                movie_list: movie_list
+                movie_list: movie_list,
+                hiddenLoading: true
             })
         });
     },
