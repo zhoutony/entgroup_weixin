@@ -14,7 +14,7 @@
    <view class="icon-before">
     <text>即将上映</text>
    </view> 
-    <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}">
     <!--<block wx:for-items="{{background}}">
         <swiper-item>
             <view class="swiper-item bc_{{item}}"></view>
