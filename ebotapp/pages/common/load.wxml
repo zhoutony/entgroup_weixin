@@ -1,0 +1,3 @@
+<template name="loading">
+    <loading hidden="{{_hiddenLoading}}" style="z-index:100;">{{title}}</loading>
+</template>

@@ -1,0 +1,75 @@
+<template name="boxofficeOption">
+    <view class="aui-radio aui-box-office {{_boxofficeOptionClass}}">
+        <view class="WarpFixedBg"bindtap="tapHideScreen" ></view>
+        <view class="flexbox-cc">
+            <view class="flexbox-vc comm-top">
+                <view id="selOption_OutBtn" class="head-icon left default-color" bindtap="tapHideScreen">
+                    <!--<icon type="clear" size="25"></icon>-->
+                    <text>取消</text>
+                </view>
+                <view class="head-center"></view>
+                <view id="selOption_YesBtn" class="head-icon right mr5 default-color">确认</view>
+            </view>
+            <radio-group class="flexbox-hj flex-wrap box-radio" bindchange="radioChange">
+                <label class="radio select-radio"  >
+                    <radio value="201" checked="true" />
+                    票房(万)
+                </label>
+                <label class="radio"  >
+                    <radio value="202"  />
+                    场次
+                </label>
+                <label class="radio"  >
+                    <radio value="203" checked="true" />
+                    人次
+                </label>
+                <label class="radio"  >
+                    <radio value="205"  />
+                    排座
+                </label>
+                <label class="radio"  >
+                    <radio value="211" checked="true" />
+                    累计票房(万)
+                </label>
+                <label class="radio"  >
+                    <radio value="221"  />
+                    票房占比
+                </label>
+                <label class="radio"  >
+                    <radio value="222" checked="true" />
+                    场次占比
+                </label>
+                <label class="radio select-radio"  >
+                    <radio value="225"  />
+                    排座占比
+                </label>
+                <label class="radio"  >
+                    <radio value="251"  />
+                    平均票价
+                </label>
+                <label class="radio"  >
+                    <radio value="701"  />
+                    柜台票房占比
+                </label>
+                <label class="radio"  >
+                    <radio value="702"  />
+                    线上票房占比
+                </label>
+                <label class="radio"  >
+                    <radio value="604"  />
+                    场均人次
+                </label>
+                <label class="radio select-radio"  >
+                    <radio value="605"  />
+                    上座率
+                </label>
+                <label class="radio radio-bare"  >
+                    
+                </label>
+                <label class="radio radio-bare"  >
+                    
+                </label>
+            </radio-group>
+        </view>
+    </view>
+</template>

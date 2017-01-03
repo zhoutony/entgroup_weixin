@@ -1,0 +1,46 @@
+
+.flexbox,
+.flexbox-h,
+.flexbox-v,
+.flexbox-hc,
+.flexbox-vc,
+.flexbox-hj
+{
+    display:-webkit-flex;
+    display:flex;
+}
+
+.flexbox-h{
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+}
+.flexbox-v{
+    -webkit-box-orient:vertical;
+    flex-direction: column;
+}
+
+.flexbox-hc{
+    -webkit-box-pack:center;   
+    justify-content: center;
+}
+.flexbox-hj{
+   -webkit-justify-content:space-around;
+    justify-content:space-around;
+}
+.flexbox-vc{
+    -webkit-box-align:center;
+    align-items: center;
+}
+ 
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-wrap-nwrap{
+    flex-wrap:nowrap;
+}
+.flex-1{
+    -webkit-box-flex:1.0;
+    flex-shrink: 1;
+    flex:1;
+}
