@@ -2,7 +2,7 @@
     <view class="aui-radio aui-box-office {{_boxofficeOptionClass}}">
         <view class="WarpFixedBg"bindtap="tapHideScreen" ></view>
         <view class="flexbox-cc">
-            <view class="comm-top">
+            <view class="flexbox-vc comm-top">
                 <view id="selOption_OutBtn" class="head-icon left default-color" bindtap="tapHideScreen">
                     <!--<icon type="clear" size="25"></icon>-->
                     <text>取消</text>
