@@ -224,3 +224,31 @@ background:#eee;
 }
 
 /**table end**/
+
+
+
+.icon-doubt,
+.icon-weibo,
+.icon-video{
+    display:inline-block;
+    vertical-align: middle;
+    width:48rpx;
+    height:48rpx;
+   
+}
+.icon-weibo{
+ /*background:url(../image/weibo.png) no-repeat center center / 40rpx auto*/
+}
+.icon-video{
+
+    /*background:url(../image/video.png) no-repeat center center / 40rpx auto*/
+}
+.icon-doubt{
+    width:30rpx;
+    height:30rpx;
+    /*background:url(../image/doubt.png) no-repeat center center / 30rpx auto*/
+}
+
+text{
+    font-weight:700!important;
+}

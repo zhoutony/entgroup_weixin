@@ -17,9 +17,12 @@ Page({
         comingMovieList: [],
         movielineAndCityClass: 'm-hide',
         boxofficeOptionClass: 'm-hide',
-        hiddenLoading: true
+        hiddenLoading: true,
+        isScrollY: true
     },
     onLoad: function () {
+        this.pageIndex = 1;
+        this.movieList = [];
         this._loadData();
         this.loadComingMovieListTop();
     },
@@ -29,7 +32,7 @@ Page({
         })
         let that = this,
             toDay = this.data.date;
-        this.pageIndex = 1;
+        
         
         var param = {
             _IsChart: 0,
@@ -44,7 +47,7 @@ Page({
             _Line: '',
             _City: '',
             _CityLevel: '',
-            _Index: ['101,102,201,225,606'],
+            _Index: '101,102,201,202,221,222,225,251,606', //101,102,201,202,221,222,225,251,606
             r: Math.random()
         };
         
@@ -54,20 +57,28 @@ Page({
                 movieListLen = movie_list.length,
                 _totalBoxOffice = utils.getHundredMillion(result.data1[0].TotalBoxOffice),
                 item, columnList;
+            that.pageIndex += 1;
+            that.totalPage = result.data3[0].TotalPage;
             for(let i = 0; i < movieListLen; i++){
                 item = movie_list[i];
                 columnList = item.ColumnList ?  item.ColumnList.split('|') : [];
                 item.movieName = columnList[2];
                 item.movieTotalBoxOffices = utils.getHundredMillion(columnList[4]);
-                // item.Attendance = item.Attendnce.toFixed(1);
+                item.ShowCount = item.ShowCount ? utils.getFormattedNum(item.ShowCount) : '-';
+                item.Attendance = item.Attendance ? item.Attendance.toFixed(1) + '%' : '-';
+                item.BoxPercent = item.BoxPercent ? item.BoxPercent.toFixed(1) + '%' : '-';
+                item.ShowPercent = item.ShowPercent ? item.ShowPercent.toFixed(1) + '%' : '-';
+                item.OfferSeatPercent = item.OfferSeatPercent ? item.OfferSeatPercent.toFixed(1) + '%' : '-';
+                item.AvgBoxOffice = item.AvgBoxOffice ? item.AvgBoxOffice : '-';
                 item.BoxOffice = utils.getHundredMillion(item.BoxOffice, '万');
                 item._columnList = columnList;
                 movie_list[i] = item;
             }
+            that.movieList = that.movieList.concat( movie_list );
             that.setData({
                 totalBoxOffice: _totalBoxOffice.num,
                 totalBoxOfficeUnits: _totalBoxOffice.units,
-                movie_list: movie_list,
+                movie_list: that.movieList,
                 hiddenLoading: true
             })
         });
@@ -114,6 +125,8 @@ Page({
         this.setData({
             date:e.detail.value
         })
+        this.pageIndex = 1;
+        this.movieList = [];
         this._loadData();
     },
     // 前一天
@@ -122,6 +135,8 @@ Page({
         this.setData({
             date: day
         })
+        this.pageIndex = 1;
+        this.movieList = [];
         this._loadData();
     },
     // 后一天
@@ -130,14 +145,16 @@ Page({
         this.setData({
             date: day
         })
+        this.pageIndex = 1;
+        this.movieList = [];
         this._loadData();
     },
     // 跳转到影片详情页
     gotomoviedetail: function(e){
         let el = e.currentTarget,
-            movie_no = el.id;
+            entid = el.id;
         wx.navigateTo({
-            url: '../moviedetail/moviedetail?movie_no=' + movie_no
+            url: '../moviedetail/moviedetail?entid=' + entid
         })
     },
     // 监听点击筛选按钮
@@ -167,6 +184,16 @@ Page({
     onPullDownRefresh: function () {
         wx.stopPullDownRefresh();
         this.onLoad();
+    },
+    // 监听滚动到底部
+    lower: function(e){
+        if(this.pageIndex <= this.totalPage){
+            this._loadData();
+        }
+    },
+    // 筛选指标
+    radioChange: function(e){
+        console.log(e)
     },
     // 分享
     onShareAppMessage: function () {

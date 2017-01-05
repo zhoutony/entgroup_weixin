@@ -1,0 +1,105 @@
+<template name="movieBaseBox">
+    <view class="movie-other bk-top-10">
+        <view class="{{boxOfficePointClassName}}">
+            <view class="flex-wrp">
+                <view class="flex-item">
+                    <text class="label">点映票房</text>
+                    <text class="numbar orange_f5b655">{{movieHeaderBaseInfo._BoxOfficePoint.num}}</text>
+                    <text class="sub orange_f5b655">{{movieHeaderBaseInfo._BoxOfficePoint.units}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">营销事件</text>
+                    <text class="numbar red_ed6c55">{{movieHeaderBaseInfo.Event}}</text>
+                    <!--<text class="sub red_ed6c55">天</text>-->
+                </view>
+                <view class="flex-item">
+                    <text class="label">剧照/海报</text>
+                    <text class="numbar orange_f5b655">{{movieHeaderBaseInfo.MoviePhoto}}</text>
+                </view>
+            </view>   
+            <view class="flex-wrp">   
+                <view class="flex-item">
+                    <text class="label">片花/预告片</text>
+                    <text class="numbar red_ed6c55">{{movieHeaderBaseInfo.MateriaVideo}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">微博数量</text>
+                    <text class="numbar blue_6688fc">{{movieHeaderBaseInfo.Weibo}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">微信公众号</text>
+                    <text class="numbar orange_f5b655">{{movieHeaderBaseInfo.WeiXinNews}}</text>
+                </view>
+            </view>
+        </view>
+
+        <view class="{{releaseClassName}}">
+            <view class="flex-wrp">
+                <view class="flex-item">
+                    <text class="label">已上映</text>
+                    <text class="numbar red_ed6c55">{{movieHeaderBaseInfo.ReleaseDays}}</text>
+                    <text class="sub red_ed6c55">天</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">累计票房</text>
+                    <text class="numbar blue_6688fc">{{movieHeaderBaseInfo._BoxOfficeToTal.num}}</text>
+                    <text class="sub blue_6688fc">{{movieHeaderBaseInfo._BoxOfficeToTal.units}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">点映票房</text>
+                    <text class="numbar orange_f5b655">{{movieHeaderBaseInfo._BoxOfficePoint.num}}</text>
+                    <text class="sub orange_f5b655">{{movieHeaderBaseInfo._BoxOfficePoint.units}}</text>
+                </view>
+            </view>   
+            <view class="flex-wrp">   
+                <view class="flex-item">
+                    <text class="label">首映日票房</text>
+                    <text class="numbar red_ed6c55">{{movieHeaderBaseInfo._BoxOfficeFirstDay.num}}</text>
+                    <text class="sub red_ed6c55">{{movieHeaderBaseInfo._BoxOfficeFirstDay.units}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">首周票房</text>
+                    <text class="numbar blue_6688fc">{{movieHeaderBaseInfo._BoxOfficeFirstWeek.num}}</text>
+                    <text class="sub blue_6688fc">{{movieHeaderBaseInfo._BoxOfficeFirstWeek.units}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">首周末票房</text>
+                    <text class="numbar orange_f5b655">{{movieHeaderBaseInfo._BoxOfficeWeekEnd.num}}</text>
+                    <text class="sub orange_f5b655">{{movieHeaderBaseInfo._BoxOfficeWeekEnd.units}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="{{comingClassName}}">
+            <view class="flex-wrp">
+                <view class="flex-item">
+                    <text class="label">营销事件</text>
+                    <text class="numbar red_ed6c55">{{movieHeaderBaseInfo.Event}}</text>
+                    <!--<text class="sub red_ed6c55">天</text>-->
+                </view>
+                <view class="flex-item">
+                    <text class="label">平面新闻</text>
+                    <text class="numbar blue_6688fc">{{movieHeaderBaseInfo.PlaneNews}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">剧照/海报</text>
+                    <text class="numbar orange_f5b655">{{movieHeaderBaseInfo.MoviePhoto}}</text>
+                </view>
+            </view>   
+            <view class="flex-wrp">   
+                <view class="flex-item">
+                    <text class="label">片花/预告片</text>
+                    <text class="numbar red_ed6c55">{{movieHeaderBaseInfo.MateriaVideo}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">微博数量</text>
+                    <text class="numbar blue_6688fc">{{movieHeaderBaseInfo.Weibo}}</text>
+                </view>
+                <view class="flex-item">
+                    <text class="label">微信公众号</text>
+                    <text class="numbar orange_f5b655">{{movieHeaderBaseInfo.WeiXinNews}}</text>
+                </view>
+            </view>
+        </view>
+        <!--flex-wrp end-->
+    </view>
+</template>

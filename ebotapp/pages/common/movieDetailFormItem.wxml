@@ -1,0 +1,96 @@
+<!--详情页表单-->
+<template name="movieDetailFormItem">
+    <view class=" bk-top-10"></view>
+        <view class="flexbox-vc aui-title ">
+            <text class="flex-1">票房明细</text>
+            <view class="box-btn">
+            <button class="btn-link-none" plain="true" size="mini" hover-class="none" bindtap="tapBoxofficeOptionShow" style="display:none;">+更多指标</button>
+            </view> 
+        </view>
+        <!--aui-title end-->
+        <view class="flexbox table-scroll"> 
+            <view class="table-fixed">
+                <view class=" flexbox-vc  tr small_tr" >
+                    <view class=" td td-num"  >
+                        <text>排名</text>
+                    </view>
+                    <view class="td td-name" style="-webkit-box-align: center;align-items: center;" >
+                        <text>院线</text>
+                    </view>
+                </view>
+                <!--tr end-->
+                <view class=" flexbox-vc  tr" >
+                    <view class=" td td-num">
+                        <text>-</text>
+                    </view>
+                    <view class="td td-name" style="-webkit-box-align: center;align-items: center;">
+                        <text class="moviename">合计</text>
+                    </view>
+                </view>
+                <block wx:for-items="{{lineLists.data2}}" wx:key="{{index}}">
+                    <view class=" flexbox-vc  tr" >
+                        <view class=" td td-num">
+                            <text>{{item.Irank}}</text>
+                        </view>
+                        <view class="td td-name" style="-webkit-box-align: center;align-items: center;">
+                            <text class="moviename">{{item.LineName}}</text>
+                        </view>
+                    </view>
+                <!--tr end-->
+                </block> 
+            </view>
+            <!--fixed end-->
+            <view class="flex-1 table-content">
+            <scroll-view class="table " scroll-x="true" style="width:100%">
+                    <view class="tr flexbox-vc flex-wrap-nwrap small_tr"  >
+                        <view class="td  ">
+                            <text>票房(万)</text>
+                        </view>
+                        <view class="td">
+                            <text>票房占比</text>
+                        </view>
+                        <view class="td">
+                            <text>供需指数</text>
+                        </view>
+                        <view class="td">
+                            <text>场均人数</text>
+                        </view>
+                    </view>
+                    <!--tr end-->
+                    <view class=" flexbox-vc  tr">
+                        <view class="td  ">
+                            <text>{{lineLists.data1[0].SumBoxOffice}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{lineLists.data1[0].BoxPercent}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{lineLists.data1[0].AvgSupplyIndex}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{lineLists.data1[0].AvgShowPeople}}</text>
+                        </view>
+                    </view>
+                    <block wx:for-items="{{lineLists.data2}}" wx:key="{{index}}">
+                        <view class=" flexbox-vc  tr">
+                            <view class="td  ">
+                                <text>{{item.BoxOffice}}</text>
+                            </view>
+                            <view class="td">
+                                <text>{{item.BoxPercent}}</text>
+                            </view>
+                            <view class="td">
+                                <text>{{item.SupplyIndex}}</text>
+                            </view>
+                            <view class="td">
+                                <text>{{item.AvgShowPeople}}</text>
+                            </view>
+                        </view>
+                    <!--tr end-->
+                    </block> 
+        </scroll-view>
+        </view>
+        <!--table-content end-->
+    
+    </view>
+</template>
