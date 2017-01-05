@@ -1,0 +1,98 @@
+<!--首页表单-->
+<template name="movieFormItem">
+    <view class=" bk-top-10"></view>
+        <view class="flexbox-vc aui-title ">
+            <text class="flex-1">票房明细</text>
+            <view class="box-btn">
+            <button class="btn-link-none" plain="true" size="mini" hover-class="none" bindtap="tapBoxofficeOptionShow" style="display:none;">+更多指标</button>
+            </view> 
+        </view>
+        <!--aui-title end-->
+        <view class="flexbox table-scroll"> 
+            <view class="table-fixed">
+                <view class=" flexbox-vc  tr small_tr" >
+                    <view class=" td td-num"  >
+                        <text></text>
+                    </view>
+                    <view class="td td-name"  >
+                        <text>影片名称</text>
+                    </view>
+                </view>
+                <!--tr end-->
+                <block wx:for-items="{{movie_list}}" wx:key="{{index}}">
+                <view class=" flexbox-vc  tr" id="{{item.EntMovieID}}" bindtap="gotomoviedetail">
+                    <view class=" td td-num">
+                        <text>{{item.Irank}}</text>
+                    </view>
+                    <view class="td td-name">
+                        <text class="moviename">{{item.MovieName}}</text>
+                        <view class="otherinfo">上映
+                            <text class="purple_7f1084">{{item._columnList[3]}}</text>
+                            天 累计
+                            <text class="purple_7f1084">{{item.movieTotalBoxOffices.num}}</text>
+                            {{item.movieTotalBoxOffices.units}}
+                        </view>
+                    </view>
+                </view>
+                <!--tr end-->
+                </block> 
+            </view>
+            <!--fixed end-->
+            <view class="flex-1 table-content">
+            <scroll-view class="table " scroll-x="true" style="width:100%">
+                    <view class="tr flexbox-vc flex-wrap-nwrap small_tr"  >
+                        <view class="td  ">
+                            <text>票房(万)</text>
+                        </view>
+                        <view class="td">
+                            <text>场次</text>
+                        </view>
+                        <view class="td">
+                            <text>上座率</text>
+                        </view>
+                        <view class="td">
+                            <text>票房占比</text>
+                        </view>
+                        <view class="td">
+                            <text>场次占比</text>
+                        </view>
+                        <view class="td">
+                            <text>排座占比</text>
+                        </view>
+                        <view class="td">
+                            <text>平均票价</text>
+                        </view>
+                    </view>
+                    <!--tr end-->
+                    <block wx:for-items="{{movie_list}}" wx:key="{{index}}">
+                <view class=" flexbox-vc  tr" id="{{item.EntMovieID}}" bindtap="gotomoviedetail">
+                <view class="td  ">
+                            <text>{{item.BoxOffice}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{item.ShowCount}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{item.Attendance}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{item.BoxPercent}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{item.ShowPercent}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{item.OfferSeatPercent}}</text>
+                        </view>
+                        <view class="td">
+                            <text>{{item.AvgBoxOffice}}</text>
+                        </view>
+                </view>
+            <!--tr end-->
+            </block> 
+        </scroll-view>
+        </view>
+        <!--table-content end-->
+    
+    </view>
+</template>

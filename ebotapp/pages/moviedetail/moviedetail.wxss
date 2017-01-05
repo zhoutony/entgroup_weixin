@@ -136,3 +136,99 @@
 .box-table  .tr:nth-child(odd){
     background:#f5f8fa;
 }
+
+
+.webhot{
+    padding:0 20rpx;
+}
+.box-content{
+padding:20rpx;
+    background:#e9eff4;
+    border-radius:8rpx;
+}
+.box-title {
+    /*padding:20rpx;*/
+}
+.box-title .title{
+font-size:23rpx;
+}
+
+.big_title,
+.big_txt{
+   display:block; 
+}
+.big_title{
+   font-size:30rpx;
+    font-weight:bold;
+    border-bottom:2rpx solid #ccc;
+    padding :10rpx;
+    line-height:1.4;
+}
+ 
+.big_txt{
+    font-size:24rpx;
+    line-height:1.5;
+     display:-webkit-box !important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp:2;
+  margin:20rpx 0 10rpx;
+} 
+
+.icon-label{
+    display:inline-block;
+    vertical-align: middle;
+    font-size:24rpx;
+    padding:6rpx 12rpx;
+    color:#6688fc;
+    border:2rpx solid #6688fc;
+    border-radius:6rpx;
+}
+ .formtxt{
+     font-size:24rpx;
+     color:#888;
+ }
+
+.webtable .thead text,
+.webtable .tbody text{
+     font-size:24rpx;
+     text-align:center;
+     min-width:80rpx;
+     padding:15rpx 0;
+ }
+ .webtable .thead text{
+    
+     color:#888;
+   
+ }
+ .webtable .thead text.flex-1,
+.webtable .tbody text.flex-1{
+    
+     text-align:left;
+ }
+ .webtable .tbody .t01{
+     color:#fa7d3c;
+ }
+ .webtable .tbody .first{
+     color:#df3e3e
+ }
+
+ .webhot .line{
+     width:48rpx;
+    
+ }
+ .line-v{
+     width:8rpx;
+    background: -webkit-linear-gradient(top,#6e86f3,#f36b5f,#6e86f3);
+     height:100%;
+ }
+ .seblist{
+     padding-bottom:30rpx;
+     background:white;
+ }
+ .seblist .aui-title text{
+     padding-right:10rpx;
+ }

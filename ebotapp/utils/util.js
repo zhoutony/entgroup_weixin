@@ -29,12 +29,12 @@ function getHundredMillion(num, _units, numstr) {
             }
         } else {
             return {
-                num: getFormattedNum((num / 10000).toFixed(1)),
-                units: '万'
+                num: num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(1)),
+                units: num / 10000 == 0 ? '' : '万'
             }
         }
     }else{
-        return getFormattedNum((num / 10000).toFixed(1));
+        return num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(1));
     }
 }
 /**
