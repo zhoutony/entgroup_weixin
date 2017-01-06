@@ -4,8 +4,7 @@
 var base = "https://mobileapi.entgroup.cn";//  https://mobileapi.bivan.cn
 module.exports = {
     isOk: function (res) {
-        return res.statusCode === 200 &&
-            res.errMsg == "request:ok";
+        return res.errMsg == "request:ok";
     },
     getMsg: function (res) {
         return {statusCode: res.statusCode, errMsg: res.errMsg};
