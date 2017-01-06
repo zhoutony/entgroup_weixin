@@ -1,7 +1,7 @@
 //index.js
-let utils = require('../../utils/util.js')
-let model = require('../../utils/model.js');
-let _ = require('../../utils/underscore.modified.js');
+var utils = require('../../utils/util.js')
+var model = require('../../utils/model.js');
+var _ = require('../../utils/underscore.modified.js');
 Page({
     data: {
         background: ['green', 'red', 'yellow'],
@@ -30,7 +30,7 @@ Page({
         this.setData({
             hiddenLoading: false
         })
-        let that = this,
+        var that = this,
             toDay = this.data.date;
         
         
@@ -53,13 +53,13 @@ Page({
         
         model.post("/Movie/GetIndex_List", param, function (result, msg) {
             wx.hideNavigationBarLoading();
-            let movie_list = result.data2,
+            var movie_list = result.data2,
                 movieListLen = movie_list.length,
                 _totalBoxOffice = utils.getHundredMillion(result.data1[0].TotalBoxOffice),
                 item, columnList;
             that.pageIndex += 1;
             that.totalPage = result.data3[0].TotalPage;
-            for(let i = 0; i < movieListLen; i++){
+            for(var i = 0; i < movieListLen; i++){
                 item = movie_list[i];
                 columnList = item.ColumnList ?  item.ColumnList.split('|') : [];
                 item.movieName = columnList[2];
@@ -84,7 +84,7 @@ Page({
         });
     },
     loadComingMovieListTop: function(){
-        let that = this;  
+        var that = this;  
         var param = {
             r: Math.random()
         };
@@ -131,7 +131,7 @@ Page({
     },
     // 前一天
     tapPrevDay: function (e) {
-        let day = utils.prevDay(this.data.date);
+        var day = utils.prevDay(this.data.date);
         this.setData({
             date: day
         })
@@ -141,7 +141,7 @@ Page({
     },
     // 后一天
     tapNextDay: function (e){
-        let day = utils.nextDay(this.data.date);
+        var day = utils.nextDay(this.data.date);
         this.setData({
             date: day
         })
@@ -151,7 +151,7 @@ Page({
     },
     // 跳转到影片详情页
     gotomoviedetail: function(e){
-        let el = e.currentTarget,
+        var el = e.currentTarget,
             entid = el.id;
         wx.navigateTo({
             url: '../moviedetail/moviedetail?entid=' + entid
