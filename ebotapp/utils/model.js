@@ -4,8 +4,9 @@
 var base = "https://mobileapi.entgroup.cn";//  https://mobileapi.bivan.cn
 module.exports = {
     isOk: function (res) {
-        return res.statusCode === 200 &&
-            res.errMsg == "request:ok";
+        // return (res.statusCode === 200 || res.statusCode === "200") &&
+        //     res.errMsg == "request:ok";
+        return true;
     },
     getMsg: function (res) {
         return {statusCode: res.statusCode, errMsg: res.errMsg};
@@ -31,10 +32,10 @@ module.exports = {
                 }
             },
             fail: function (res) {
-                console.log("request:fail");
+                console.log("res" + res);
             },
             complete: function (res) {
-                console.log("request:complete");
+                console.log("request:complete::" + res);
             }
         }
         wx.request(param);
@@ -63,10 +64,10 @@ module.exports = {
                 }
             },
             fail: function (res) {
-                console.log("request:fail");
+                console.log("request:fail" + res);
             },
             complete: function (res) {
-                console.log("request:complete");
+                // console.log("request:complete" + JSON.stringify(res));
             }
         }
         wx.request(param);
