@@ -9,7 +9,7 @@
 }
 
 .aui-title text{
-    font-size:28rpx;
+    font-size:24rpx;
 }
 /**aui-radio**/
 .aui-radio{
@@ -179,7 +179,7 @@ background:#eee;
 }
 
 .table-scroll .td text {
-	font-size: 24rpx;
+	font-size: 22rpx;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -194,7 +194,7 @@ background:#eee;
 }
 
 .table-scroll .td-name .moviename {
-	font-size: 28rpx;
+	font-size: 24rpx;
 	padding-bottom: 10rpx;
 }
 
