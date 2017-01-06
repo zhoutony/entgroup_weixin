@@ -1,7 +1,7 @@
 /**
  * Created by cdmatom on 2017/1/1.
  */
-var base = "https://mobileapi.bivan.cn";
+var base = "https://mobileapi.entgroup.cn";//  https://mobileapi.bivan.cn
 module.exports = {
     isOk: function (res) {
         return res.statusCode === 200 &&
@@ -48,6 +48,9 @@ module.exports = {
             url: url,
             method: method,
             data: data,
+            header: {
+                'content-type': 'application/json'
+            },
             success: function (res) {
                 if (that.isOk(res)) {
                     var data = res.data;

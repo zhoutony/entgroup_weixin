@@ -1,6 +1,6 @@
-let utils = require('../../utils/util.js')
-let model = require('../../utils/model.js');
-let _ = require('../../utils/underscore.modified.js');
+var utils = require('../../utils/util.js')
+var model = require('../../utils/model.js');
+var _ = require('../../utils/underscore.modified.js');
 Page({
   data: {
     movieHeaderBaseInfo: {},
@@ -12,7 +12,7 @@ Page({
     hiddenLoading: true
   },
   onLoad: function (e) {
-    // let entid = e.entid;
+    // var entid = e.entid;
     this.getMovieHeaderBaseInfo(e.entid);
     // this.getCinameLine(e.entid);
   },
@@ -21,12 +21,12 @@ Page({
         this.setData({
             hiddenLoading: false
         })
-      let that = this;  
-      let param = {
+      var that = this;  
+      var param = {
           entIDs: entid
       };
       model.post("/Shared/_GetMovieHeaderBaseInfo", param, function (result, msg) {
-        let data = result.data1[0],
+        var data = result.data1[0],
             data1 = result.data2[0],
             comingClassName = 'm-hide',
             releaseClassName = 'm-hide',
@@ -60,7 +60,7 @@ Page({
   },
 
   getCinameLine: function(DBOMovieID){
-    let that = this,
+    var that = this,
         param = {
             _Line: '',
             _MovieID: DBOMovieID,
@@ -79,14 +79,14 @@ Page({
         };
         
         model.post("/Movie/GetLine_List", param, function (result, msg) {
-          let lineLists = result,
+          var lineLists = result,
             data2 = lineLists.data2,
             data2Len = data2.length,
             item;
           lineLists.data1[0].SumBoxOffice = utils.getHundredMillion (lineLists.data1[0].SumBoxOffice, '万');
           lineLists.data1[0].BoxPercent = lineLists.data1[0].BoxPercent ? lineLists.data1[0].BoxPercent : '-';
 
-          for(let i = 0; i < data2Len; i++){
+          for(var i = 0; i < data2Len; i++){
             item = data2[i];
             item.BoxOffice = utils.getHundredMillion (item.BoxOffice, '万');
             item.BoxPercent = item.BoxPercent ? item.BoxPercent : '-';
