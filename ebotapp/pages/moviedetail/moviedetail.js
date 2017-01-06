@@ -9,12 +9,22 @@ Page({
     boxOfficePointClassName: 'm-hide',
     date: utils.formatTime( new Date ),
     lineLists: [],
-    hiddenLoading: true
+    hiddenLoading: true,
+    index_page_android: ''
   },
   onLoad: function (e) {
     // var entid = e.entid;
     this.getMovieHeaderBaseInfo(e.entid);
     // this.getCinameLine(e.entid);
+    wx.getSystemInfo({
+        success: function(res) {
+            if(res.platform == 'android'){
+                that.setData({
+                    index_page_android: 'index_page_android'
+                })
+            }
+        }
+    })
   },
   // 获取影片信息
   getMovieHeaderBaseInfo: function(entid){

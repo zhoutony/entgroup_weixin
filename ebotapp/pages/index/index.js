@@ -18,13 +18,24 @@ Page({
         movielineAndCityClass: 'm-hide',
         boxofficeOptionClass: 'm-hide',
         hiddenLoading: true,
-        isScrollY: true
+        isScrollY: true,
+        index_page_android: ''
     },
     onLoad: function () {
+        var that = this;
         this.pageIndex = 1;
         this.movieList = [];
         this._loadData();
         this.loadComingMovieListTop();
+        wx.getSystemInfo({
+            success: function(res) {
+                if(res.platform == 'android'){
+                    that.setData({
+                        index_page_android: 'index_page_android'
+                    })
+                }
+            }
+        })
     },
     _loadData: function(){
         this.setData({

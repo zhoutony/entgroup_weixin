@@ -179,7 +179,7 @@ background:#eee;
 }
 
 .table-scroll .td text {
-	font-size: 22rpx;
+	font-size: 24rpx;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -251,4 +251,16 @@ background:#eee;
 
 text{
     font-weight:700!important;
+}
+
+
+
+
+
+.index_page_android .table-scroll .td text {
+	font-size: 22rpx!important;
+}
+.index_page_android .table-scroll .tr .td {
+    min-height:130rpx;
+
 }

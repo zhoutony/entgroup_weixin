@@ -232,3 +232,15 @@ font-size:23rpx;
  .seblist .aui-title text{
      padding-right:10rpx;
  }
+
+ .index_page_android .movie-info .title text{
+    font-size:24rpx;
+}
+.index_page_android movie-info .time wx-text {
+    font-size:20rpx;
+}
+.index_page_android .blue_6688fc,
+.index_page_android .red_ed6c55,
+.index_page_android .orange_f5b655,{
+    font-size:18rpx;
+}

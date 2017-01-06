@@ -5,7 +5,7 @@
 <import src="../common/movieDetailFormItem.wxml" />
 <import src="../common/load.wxml" />
 
-
+<view class="{{index_page_android}}">
 <view class="flex-wrp movie-info">
     <view class="flex-item">
         <view class="title">
@@ -64,7 +64,7 @@
 <!--表单-->
 <template is="movieDetailFormItem" data="{{lineLists: lineLists}}" />
 
-
+</view>
 <!--movie-timebox end-->
 <!--<view class="film-details bk-top-10">
     <view class="flex-wrap-vc box-title">
