@@ -34,7 +34,12 @@ function getHundredMillion(num, _units, numstr) {
             }
         }
     }else{
-        return num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(1));
+        if(num < 10000){
+            return num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(2));
+        }else{
+            return num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(1));
+        }
+        
     }
 }
 /**
@@ -86,7 +91,7 @@ function nextDay(date) {
 // 返回以date的前后index天
 function getIndexDaysStr(date, index) {
     var mydate = new Date(date);
-    var resultdate = new Date(mydate - 1 + index * 24 * 60 * 60 * 1000);
+    var resultdate = new Date(mydate * 1 + (index + 1) * 24 * 60 * 60 * 1000);
     return getDateStr(resultdate);
 }
 

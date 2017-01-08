@@ -215,6 +215,10 @@ background:#eee;
 	text-align: center;
 }
 
+.table-scroll .tr .td {
+	background: #fff;
+}
+
 .table-scroll .tr:nth-child(odd) .td {
 	background: #f5f8fa;
 }
@@ -252,8 +256,25 @@ background:#eee;
 text{
     font-weight:700!important;
 }
-
-
+.small-btn{
+    display:inline-block;
+    padding:8rpx;
+    border-radius:3px;
+    background-color:#6bbdbc;
+    color:#fff!important;
+    vertical-align:middle;
+    -webkit-transform:scale(.9);
+    transform:scale(.9);
+}
+.small-btn-orin {
+    background-color: #f19546;
+}
+.small-btn-red {
+    background-color: #e55753;
+}
+.small-btn-violet {
+    background-color: rgb(179, 55, 163);
+}
 
 
 

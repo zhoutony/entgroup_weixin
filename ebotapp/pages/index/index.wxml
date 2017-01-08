@@ -10,7 +10,7 @@
 <scroll-view class="{{index_page_android}}" scroll-y="{{isScrollY}}" bindscrolltolower="lower"  style="height:100%;">
     <template is="movielineAndCity" data="{{_movielineAndCityClass:movielineAndCityClass}}"/>
 
-    <template is="boxofficeOption" data="{{_boxofficeOptionClass: boxofficeOptionClass}}"/>
+    <template is="boxofficeOption" data="{{_boxofficeOptionClass: boxofficeOptionClass, setSelectIndexGetLists: setSelectIndexGetListOption}}"/>
 
     <template is="loading" data="{{_hiddenLoading: hiddenLoading, title:'正在加载'}}"/>
 
@@ -71,7 +71,7 @@
     </view>
 
     <!--表单-->
-    <template is="movieFormItem" data="{{movie_list: movie_list}}" />
+    <template is="movieFormItem" data="{{movie_list: movie_list, setSelectIndexGetLists: setSelectIndexGetLists}}" />
     
 </scroll-view>
 <!--table-scroll end-->

@@ -9,8 +9,14 @@ Page({
     boxOfficePointClassName: 'm-hide',
     date: utils.formatTime( new Date ),
     lineLists: [],
+    timeLists: [],
+    movieEventList: [],
     hiddenLoading: true,
-    index_page_android: ''
+    index_page_android: '',
+    movietimeclass: 'current',
+    movielineclass: '',
+    movieFormItemClass: 'm-hide',
+    seblistClass: ''
   },
   onLoad: function (e) {
     // var entid = e.entid;
@@ -64,13 +70,17 @@ Page({
             releaseClassName: releaseClassName,
             boxOfficePointClassName: boxOfficePointClassName
         })
-        that.getCinameLine(data.DBOMovieID);
-        
+        // that.getCinameLine(data.DBOMovieID);
+        that.dBOMovieID = data.DBOMovieID;
+        that.ReleaseDate = data.ReleaseDate;
+        that.getTimeIntervalList(data.DBOMovieID);
+        that.getMovieEventList(data.DBOMovieID);
       })
   },
 
-  getCinameLine: function(DBOMovieID){
-    var that = this,
+    // 院线
+    getCinameLine: function(DBOMovieID){
+        var that = this,
         param = {
             _Line: '',
             _MovieID: DBOMovieID,
@@ -89,25 +99,139 @@ Page({
         };
         
         model.post("/Movie/GetLine_List", param, function (result, msg) {
-          var lineLists = result,
-            data2 = lineLists.data2,
-            data2Len = data2.length,
-            item;
-          lineLists.data1[0].SumBoxOffice = utils.getHundredMillion (lineLists.data1[0].SumBoxOffice, '万');
-          lineLists.data1[0].BoxPercent = lineLists.data1[0].BoxPercent ? lineLists.data1[0].BoxPercent : '-';
+            try{
+                var lineLists = result,
+                    data2 = lineLists.data2,
+                    data2Len = data2.length,
+                    item;
+                lineLists.data1[0].SumBoxOffice = utils.getHundredMillion (lineLists.data1[0].SumBoxOffice, '万');
+                lineLists.data1[0].BoxPercent = lineLists.data1[0].BoxPercent ? lineLists.data1[0].BoxPercent : '-';
 
-          for(var i = 0; i < data2Len; i++){
-            item = data2[i];
-            item.BoxOffice = utils.getHundredMillion (item.BoxOffice, '万');
-            item.BoxPercent = item.BoxPercent ? item.BoxPercent : '-';
-            data2[i] = item;
-          }
-          lineLists.data2 = data2;
-          that.setData({
-            lineLists: lineLists,
-            hiddenLoading: true
-          })
+                for(var i = 0; i < data2Len; i++){
+                    item = data2[i];
+                    item.BoxOffice = utils.getHundredMillion (item.BoxOffice, '万');
+                    item.BoxPercent = item.BoxPercent ? item.BoxPercent : '-';
+                    data2[i] = item;
+                }
+                lineLists.data2 = data2;
+                that.setData({
+                    lineLists: lineLists,
+                    hiddenLoading: true
+                })
+            }catch(err){
+                console.log(err)
+            }
         });
-  }
+    },
+
+    // 时段
+    getTimeIntervalList: function(DBOMovieID){
+        var that = this,
+            sDate = utils.prevDay(this.ReleaseDate),
+            eDate = utils.getIndexDaysStr(this.ReleaseDate, 7),
+        param = {
+            _MovieID: DBOMovieID,
+            _Order: 102,
+            _OrderType: 'DESC',
+            _Date: sDate + ',' + eDate,
+            _DateSort: 'Self',
+            _sDate: sDate,
+            _eDate: eDate,
+            _Line: '',
+            _City: '',
+            _CityLevel: '',
+            _Index: '102,201,221,222,604',
+            r: Math.random()
+        };
+        
+        model.post("/Movie/GetTimeInterval_List", param, function (result, msg) {
+         try{   
+            var lists = result,
+                data2 = lists.data2,
+                data2Len = data2.length,
+                item;
+            lists.data1[0].SumBoxOffice = lists.data1[0].SumBoxOffice ? utils.getHundredMillion (lists.data1[0].SumBoxOffice, '万') : '-';
+            lists.data1[0].ShowPercent = lists.data1[0].ShowPercent ? lists.data1[0].ShowPercent.toFixed(1) + '%' : '-';
+            lists.data1[0].BoxPercent = lists.data1[0].BoxPercent ? lists.data1[0].BoxPercent : '-';
+
+            for(var i = 0; i < data2Len; i++){
+                item = data2[i];
+                item.BoxOffice = utils.getHundredMillion (item.BoxOffice, '万');
+                item.ShowPercent = item.ShowPercent ? item.ShowPercent.toFixed(1) + '%' : '-';
+                item.BoxPercent = item.BoxPercent ? item.BoxPercent : '-';
+                item.columnList = item.ColumnList ?  item.ColumnList.split('|') : [];
+                item.isAppointment = new Date(item.columnList[0] + ' 00:00:00') * 1 > new Date(that.data.date + ' 00:00:00') * 1 ? true : false;
+                data2[i] = item;
+            }
+            lists.data2 = data2;
+            that.setData({
+                timeLists: lists,
+                hiddenLoading: true
+            })
+         }catch(err){
+             console.log(err)
+         }
+        });
+    },
+
+    // /Movie/GetMarketing_EventList
+    getMovieEventList: function(DBOMovieID){
+        var that = this,
+        param = {
+            _MovieID: DBOMovieID,
+            r: Math.random()
+        };
+        
+        model.post("/Movie/GetMarketing_EventList", param, function (result, msg) {
+            try{
+                var lists = result;
+                // var lists = 
+                lists.data1Len = lists.data1.length;
+                lists.data2Len = lists.data2.length;
+                var item;
+                for(var i = 0; i < lists.data1Len; i++){
+                    item = lists.data1[i];
+                    if(item.ReleaseDays >=1){
+                        item._ReleaseDays = '上映日';
+                    }else{
+                        item._ReleaseDays = '前' + Math.abs(item.ReleaseDays) + '天';
+                    }
+                }
+                that.setData({
+                    movieEventList: lists,
+                    hiddenLoading: true
+                })
+            }catch (err){
+                console.log(err)
+            }
+        });
+    },
+
+    // 点击标签
+    changeItem: function(e){
+        var el = e.target,
+            current = el.dataset.current;
+        if(current == 0){
+            this.getTimeIntervalList(this.dBOMovieID)
+            this.getMovieEventList(this.dBOMovieID);
+            this.setData({
+                movietimeclass: 'current',
+                movielineclass: '',
+                movieFormItemClass: 'm-hide',
+                seblistClass: '',
+                hiddenLoading: false
+            })
+        }else if(current == 1){
+            
+            this.getCinameLine(this.dBOMovieID);
+            this.setData({
+                movietimeclass: '',
+                movielineclass: 'current',
+                movieFormItemClass: '',
+                seblistClass: 'm-hide',
+                hiddenLoading: false
+            })
+        }
+    }
 
 })
