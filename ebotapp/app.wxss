@@ -141,7 +141,8 @@ left:136rpx;
   content: "";
   position: absolute;
   right: -39rpx;
-  border: 22rpx solid #cb5858;
+  border: 23rpx solid #cb5858;
   border-right-color: transparent;
   line-height: normal;
 }
+

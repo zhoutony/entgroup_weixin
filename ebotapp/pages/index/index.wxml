@@ -7,10 +7,10 @@
    <image style="width: 40rpx; height: 40rpx;top:10rpx;position:absolute;left:20rpx;" src="../../image/icon.png"></image>
    <icon class="search" color="#3e3e3e" type="search" size="25"/>
 </view>-->
-<scroll-view class="" scroll-y="{{isScrollY}}" bindscrolltolower="lower"  style="height:100%;">
+<scroll-view class="{{index_page_android}}" scroll-y="{{isScrollY}}" bindscrolltolower="lower"  style="height:100%;">
     <template is="movielineAndCity" data="{{_movielineAndCityClass:movielineAndCityClass}}"/>
 
-    <template is="boxofficeOption" data="{{_boxofficeOptionClass: boxofficeOptionClass}}"/>
+    <template is="boxofficeOption" data="{{_boxofficeOptionClass: boxofficeOptionClass, setSelectIndexGetLists: setSelectIndexGetListOption}}"/>
 
     <template is="loading" data="{{_hiddenLoading: hiddenLoading, title:'正在加载'}}"/>
 
@@ -52,14 +52,14 @@
     </view>
     <view class="block-data">
         <view class="choose-warp_data pt0 pb5" style="height: 50rpx;">
-            <view id="selDate_PerBtn" style="width: 13% !important;" class="tal black">
+            <view id="selDate_PerBtn" style="width: 15% !important;" class="tal black">
                 <view class="jt-core1"></view>
                 <text class="btn-pre" bindtap="tapPrevDay">前一天</text>
             </view>
-            <view class="date-choose" style="width: 74% !important;">
+            <view class="date-choose" style="width: 70% !important;">
                     <text class="fwb" id="selOption_Text">全国大盘</text>
             </view>
-            <view id="selDate_NextBtn" style="width: 13% !important;" class="tal black">
+            <view id="selDate_NextBtn" style="width: 15% !important;" class="tal black">
                 <text bindtap="tapNextDay">后一天</text>
                 <view class="jt-core1 jt-core2"></view>
             </view>
@@ -71,7 +71,7 @@
     </view>
 
     <!--表单-->
-    <template is="movieFormItem" data="{{movie_list: movie_list}}" />
+    <template is="movieFormItem" data="{{movie_list: movie_list, setSelectIndexGetLists: setSelectIndexGetLists}}" />
     
 </scroll-view>
 <!--table-scroll end-->

@@ -47,7 +47,13 @@
 .movie-timebox .movie-title .box-title{
     text-align:center;
     font-size:28rpx;
+    background:#f5f8fa;
 }
+
+.current{
+    background:#fff!important;
+}
+
 .movie-timebox .movie-title .box-btn{
     width:80rpx;
     line-height:80rpx;
@@ -158,7 +164,7 @@ font-size:23rpx;
    display:block; 
 }
 .big_title{
-   font-size:30rpx;
+   font-size:28rpx;
     font-weight:bold;
     border-bottom:2rpx solid #ccc;
     padding :10rpx;
@@ -196,7 +202,7 @@ font-size:23rpx;
 .webtable .tbody text{
      font-size:24rpx;
      text-align:center;
-     min-width:80rpx;
+     min-width:95rpx;
      padding:15rpx 0;
  }
  .webtable .thead text{
@@ -232,3 +238,15 @@ font-size:23rpx;
  .seblist .aui-title text{
      padding-right:10rpx;
  }
+
+ .index_page_android .movie-info .title text{
+    font-size:24rpx;
+}
+.index_page_android movie-info .time wx-text {
+    font-size:20rpx;
+}
+.index_page_android .blue_6688fc,
+.index_page_android .red_ed6c55,
+.index_page_android .orange_f5b655,{
+    font-size:18rpx;
+}
