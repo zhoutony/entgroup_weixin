@@ -231,16 +231,17 @@ Page({
         var el = e.currentTarget,
             entid = el.id,
             that = this;
-        if(that.isNavigateTo){
-            that.isNavigateTo = false;
+        if(this.isNavigateTo){
+            this.isNavigateTo = false;
             wx.navigateTo({
                 url: '../moviedetail/moviedetail?entid=' + entid,
                 complete: function(){
-                    that.isNavigateTo = true;
+                    setTimeout(function(){
+                        that.isNavigateTo = true;
+                    }, 2000);
                 }
             })
         }
-        this.clickTime = time;
     },
     // 监听点击筛选按钮
     tapShowScreen: function(e) {
