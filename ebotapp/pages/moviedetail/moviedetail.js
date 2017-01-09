@@ -74,7 +74,7 @@ Page({
         that.dBOMovieID = data.DBOMovieID;
         that.ReleaseDate = data.ReleaseDate;
         that.getTimeIntervalList(data.DBOMovieID);
-        that.getMovieEventList(data.DBOMovieID);
+        that.getMovieEventList(data.EFMTMovieID);
       })
   },
 
@@ -175,10 +175,10 @@ Page({
     },
 
     // /Movie/GetMarketing_EventList
-    getMovieEventList: function(DBOMovieID){
+    getMovieEventList: function(EFMTMovieID){
         var that = this,
         param = {
-            _MovieID: DBOMovieID,
+            _MovieID: EFMTMovieID,
             r: Math.random()
         };
         
