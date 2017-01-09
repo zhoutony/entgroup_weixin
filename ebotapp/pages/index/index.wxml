@@ -52,15 +52,15 @@
     </view>
     <view class="block-data">
         <view class="choose-warp_data pt0 pb5" style="height: 50rpx;">
-            <view id="selDate_PerBtn" style="width: 15% !important;" class="tal black">
+            <view id="selDate_PerBtn" style="width: 15% !important;height:60rpx;" class="tal black" bindtap="tapPrevDay">
                 <view class="jt-core1"></view>
-                <text class="btn-pre" bindtap="tapPrevDay">前一天</text>
+                <text class="btn-pre">前一天</text>
             </view>
             <view class="date-choose" style="width: 70% !important;">
                     <text class="fwb" id="selOption_Text">全国大盘</text>
             </view>
-            <view id="selDate_NextBtn" style="width: 15% !important;" class="tal black">
-                <text bindtap="tapNextDay">后一天</text>
+            <view id="selDate_NextBtn" style="width: 15% !important;height:60rpx;" class="tal black" bindtap="tapNextDay">
+                <text>后一天</text>
                 <view class="jt-core1 jt-core2"></view>
             </view>
         </view>
