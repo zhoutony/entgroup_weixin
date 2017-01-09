@@ -1,68 +1,28 @@
 <template name="boxofficeOption">
     <view class="aui-radio aui-box-office {{_boxofficeOptionClass}}">
-        <view class="WarpFixedBg"bindtap="tapHideScreen" ></view>
+        <view class="WarpFixedBg" bindtap="tapBoxofficeOptionHide" ></view>
         <view class="flexbox-cc">
             <view class="flexbox-vc comm-top">
-                <view id="selOption_OutBtn" class="head-icon left default-color" bindtap="tapHideScreen">
+                <view id="selOption_OutBtn" class="head-icon left default-color" bindtap="tapBoxofficeOptionHide">
                     <!--<icon type="clear" size="25"></icon>-->
                     <text>取消</text>
                 </view>
                 <view class="head-center"></view>
-                <view id="selOption_YesBtn" class="head-icon right mr5 default-color">确认</view>
+                <view id="selOption_YesBtn" class="head-icon right mr5 default-color" bindtap="tapBoxofficeOptionConfirm">确认</view>
             </view>
             <radio-group class="flexbox-hj flex-wrap box-radio" bindtap="radioChange">
-                <label class="radio select-radio"  >
-                    <radio data-val="201" checked="true" />
-                    票房(万)
-                </label>
-                <label class="radio"  >
-                    <radio data-val="202"  />
-                    场次
-                </label>
-                <label class="radio"  >
-                    <radio data-val="203" checked="true" />
-                    人次
-                </label>
-                <label class="radio"  >
-                    <radio data-val="205"  />
-                    排座
-                </label>
-                <label class="radio"  >
-                    <radio data-val="211" checked="true" />
-                    累计票房(万)
-                </label>
-                <label class="radio"  >
-                    <radio data-val="221"  />
-                    票房占比
-                </label>
-                <label class="radio"  >
-                    <radio data-val="222" checked="true" />
-                    场次占比
-                </label>
-                <label class="radio select-radio"  >
-                    <radio data-val="225"  />
-                    排座占比
-                </label>
-                <label class="radio"  >
-                    <radio data-val="251"  />
-                    平均票价
-                </label>
-                <label class="radio"  >
-                    <radio data-val="701"  />
-                    柜台票房占比
-                </label>
-                <label class="radio"  >
-                    <radio data-val="702"  />
-                    线上票房占比
-                </label>
-                <label class="radio"  >
-                    <radio data-val="604"  />
-                    场均人次
-                </label>
-                <label class="radio select-radio"  >
-                    <radio data-val="606"  />
-                    上座率
-                </label>
+                <block wx:for-items="{{setSelectIndexGetLists}}" wx:key="{{index}}">
+                    <label wx:if="{{index < 2}}" style="display:none;">
+                    </label>
+                    <label wx:elif="{{item.selected}}" class="radio select-radio" data-selected="true" data-indexid="{{item.IndexID}}" >
+                        <radio data-indexid="{{item.IndexID}}" data-selected="true" checked="true" />
+                        {{item.IndexText}}
+                    </label>
+                    <label class="radio" data-indexid="{{item.IndexID}}" data-selected="false" wx:else>
+                        <radio data-indexid="{{item.IndexID}}" data-selected="false" checked="true" />
+                        {{item.IndexText}}
+                    </label>
+                </block>
                 <label class="radio radio-bare"  >
                     
                 </label>

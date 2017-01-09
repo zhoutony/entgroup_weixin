@@ -5,7 +5,7 @@
 <import src="../common/movieDetailFormItem.wxml" />
 <import src="../common/load.wxml" />
 
-
+<view class="{{index_page_android}}">
 <view class="flex-wrp movie-info">
     <view class="flex-item">
         <view class="title">
@@ -32,9 +32,12 @@
 
 <!--movie-ohter end-->
 <view class="movie-timebox bk-top-10">
-    <view class="flex-wrp movie-title">
-        <view class="flex-item box-title">
-            <text class="purple_7f1084">院线</text>
+    <view class="flex-wrp movie-title" bindtap="changeItem">
+        <view class="flex-item box-title {{movietimeclass}}" data-current="{{0}}">
+            <text class="purple_7f1084" data-current="{{0}}">时段</text>
+        </view>
+        <view class="flex-item box-title {{movielineclass}}" data-current="{{1}}">
+            <text class="purple_7f1084" data-current="{{1}}">院线</text>
         </view>
         <view class="flex-wrap-vc box-btn" style="display:none;">
            <view class="icon-add">
@@ -47,12 +50,13 @@
             <text>2016-12-22至12-31</text>
              <view class="icon-up"></view>
         </view>
-        
         <view clas="all-film">
             <text>全部院线</text>
             <view class="icon-up"></view>
         </view>
     </view>-->
+    
+
     <!--movie-time end-->
     <!--<view class="movie-echart bk-top-10">
         <view style="height:80rpx;">
@@ -62,9 +66,11 @@
 </view>
 
 <!--表单-->
-<template is="movieDetailFormItem" data="{{lineLists: lineLists}}" />
+<template is="movieDetailFormItem" data="{{lineLists: lineLists, movieFormItemClass: movieFormItemClass}}" />
+<template is="movieTimeFormItem" data="{{timeLists: timeLists, seblistClass:seblistClass}}" />
 
-
+<template is="seblist" data="{{movieEventList: movieEventList, seblistClass:seblistClass}}"/>
+</view>
 <!--movie-timebox end-->
 <!--<view class="film-details bk-top-10">
     <view class="flex-wrap-vc box-title">

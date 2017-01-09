@@ -1,10 +1,10 @@
 <!--首页表单-->
 <template name="movieFormItem">
-    <view class=" bk-top-10"></view>
+    <view class="bk-top-10"></view>
         <view class="flexbox-vc aui-title ">
             <text class="flex-1">票房明细</text>
             <view class="box-btn">
-            <button class="btn-link-none" plain="true" size="mini" hover-class="none" bindtap="tapBoxofficeOptionShow" style="display:none;">+更多指标</button>
+            <button class="btn-link-none" plain="true" size="mini" hover-class="none" bindtap="tapBoxofficeOptionShow">+更多指标</button>
             </view> 
         </view>
         <!--aui-title end-->
@@ -26,9 +26,30 @@
                     </view>
                     <view class="td td-name">
                         <text class="moviename">{{item.MovieName}}</text>
-                        <view class="otherinfo">上映
-                            <text class="purple_7f1084">{{item._columnList[3]}}</text>
-                            天 累计
+                        <view wx:if="{{item._columnList[3] > 1}}" class="otherinfo">
+                            <block wx:if="{{item._columnList[3] >= 90}}">
+                                <text class="purple_7f1084">{{item.ReleaseDate}}</text>
+                                累计
+                                <text class="purple_7f1084">{{item.movieTotalBoxOffices.num}}</text>
+                                {{item.movieTotalBoxOffices.units}}
+                            </block>
+                            <block wx:else>
+                                上映
+                                <text class="purple_7f1084">{{item._columnList[3]}}</text>
+                                天 累计
+                                <text class="purple_7f1084">{{item.movieTotalBoxOffices.num}}</text>
+                                {{item.movieTotalBoxOffices.units}}
+                            </block>
+                        </view>
+                        <view wx:elif="{{item._columnList[3] == 1}}" class="otherinfo">
+                            <text class="purple_7f1084 small-btn small-btn-red">首映</text>
+                             累计
+                            <text class="purple_7f1084">{{item.movieTotalBoxOffices.num}}</text>
+                            {{item.movieTotalBoxOffices.units}}
+                        </view>
+                        <view wx:elif="{{item._columnList[3] <= 0}}" class="otherinfo">
+                            <text class="purple_7f1084 small-btn small-btn-orin">点映</text>
+                             累计
                             <text class="purple_7f1084">{{item.movieTotalBoxOffices.num}}</text>
                             {{item.movieTotalBoxOffices.units}}
                         </view>
@@ -41,55 +62,57 @@
             <view class="flex-1 table-content">
             <scroll-view class="table " scroll-x="true" style="width:100%">
                     <view class="tr flexbox-vc flex-wrap-nwrap small_tr"  >
-                        <view class="td  ">
-                            <text>票房(万)</text>
-                        </view>
-                        <view class="td">
-                            <text>场次</text>
-                        </view>
-                        <view class="td">
-                            <text>上座率</text>
-                        </view>
-                        <view class="td">
-                            <text>票房占比</text>
-                        </view>
-                        <view class="td">
-                            <text>场次占比</text>
-                        </view>
-                        <view class="td">
-                            <text>排座占比</text>
-                        </view>
-                        <view class="td">
-                            <text>平均票价</text>
-                        </view>
+                        <block wx:for-items="{{setSelectIndexGetLists}}" wx:key="{{index}}">
+                            <view wx:if="{{item.selected}}" data-indexID="{{item.IndexID}}" class="td">
+                                <text>{{item.IndexText}}</text>
+                            </view>
+                        </block>
                     </view>
                     <!--tr end-->
                     <block wx:for-items="{{movie_list}}" wx:key="{{index}}">
-                <view class=" flexbox-vc  tr" id="{{item.EntMovieID}}" bindtap="gotomoviedetail">
-                <view class="td  ">
-                            <text>{{item.BoxOffice}}</text>
+                        <view class=" flexbox-vc  tr" id="{{item.EntMovieID}}" bindtap="gotomoviedetail" >
+                            <view wx:if="{{item.isBoxOffice}}" class="td  ">
+                                <text>{{item.BoxOffice}}</text>
+                            </view>
+                            <view wx:if="{{item.isShowCount}}" class="td">
+                                <text>{{item.ShowCount}}</text>
+                            </view>
+                            <view wx:if="{{item.isAudienceCount}}" class="td">
+                                <text>{{item.AudienceCount}}</text>
+                            </view>
+                            <view wx:if="{{item.isOfferSeat}}" class="td">
+                                <text>{{item.OfferSeat}}</text>
+                            </view>
+                            <view wx:if="{{item.isSumBoxOffice}}" class="td">
+                                <text>{{item.SumBoxOffice}}</text>
+                            </view>
+                            <view wx:if="{{item.isBoxPercent}}" class="td">
+                                <text>{{item.BoxPercent}}</text>
+                            </view>
+                            <view wx:if="{{item.isShowPercent}}" class="td">
+                                <text>{{item.ShowPercent}}</text>
+                            </view>
+                            <view wx:if="{{item.isOfferSeatPercent}}" class="td">
+                                <text>{{item.OfferSeatPercent}}</text>
+                            </view>
+                            <view wx:if="{{item.isAvgBoxOffice}}" class="td">
+                                <text>{{item.AvgBoxOffice}}</text>
+                            </view>
+                            <view wx:if="{{item.isLineBoxPercent}}" class="td">
+                                <text>{{item.LineBoxPercent}}</text>
+                            </view>
+                            <view wx:if="{{item.isOnLineBoxPercent}}" class="td">
+                                <text>{{item.OnLineBoxPercent}}</text>
+                            </view>
+                            <view wx:if="{{item.isAvgShowPeople}}" class="td">
+                                <text>{{item.AvgShowPeople}}</text>
+                            </view>
+                            <view wx:if="{{item.isAttendance}}" class="td">
+                                <text>{{item.Attendance}}</text>
+                            </view>
                         </view>
-                        <view class="td">
-                            <text>{{item.ShowCount}}</text>
-                        </view>
-                        <view class="td">
-                            <text>{{item.Attendance}}</text>
-                        </view>
-                        <view class="td">
-                            <text>{{item.BoxPercent}}</text>
-                        </view>
-                        <view class="td">
-                            <text>{{item.ShowPercent}}</text>
-                        </view>
-                        <view class="td">
-                            <text>{{item.OfferSeatPercent}}</text>
-                        </view>
-                        <view class="td">
-                            <text>{{item.AvgBoxOffice}}</text>
-                        </view>
-                </view>
-            <!--tr end-->
-            </block> 
+                <!--tr end-->
+                </block> 
         </scroll-view>
         </view>
         <!--table-content end-->

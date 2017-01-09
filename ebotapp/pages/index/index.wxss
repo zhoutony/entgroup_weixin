@@ -51,7 +51,7 @@
 }
 .swiper-item{
     display: block;
-    height: 100rpx;
+    /*height: 100rpx;*/
 }
 .swiper-view{
   position:relative;
@@ -68,14 +68,15 @@
 .section_gap .time{
     text-align:center;
 }
+
 .section_gap .title{
-    padding:10rpx 0 5rpx;
+    padding: 15rpx 0 0rpx;
 }
 .section_gap .title text{
     font-size:28rpx;
 }
 .section_gap .time text{
-    font-size:24rpx;
+    font-size:22rpx;
 }
 .section_gap .otherinfo{
     position:absolute;
@@ -84,11 +85,13 @@
     text-align:center;
 }
 .section_gap .otherinfo .infotxt {
-    font-size:22rpx;
+    font-size:20rpx;
     font-weight:normal;
+    position: relative;
+    top: -8rpx;
 }
 .section_gap .otherinfo .number text{
-    font-size:40rpx;
+    font-size:36rpx;
 }
 .moviebg{
     width:100%;
@@ -110,7 +113,7 @@
     top:3rpx;
     position:relative;
     left:7rpx;
-    width:20%
+    width:30%
 }
 .picker{
     font-size: 22rpx;
@@ -136,7 +139,7 @@
     transform:rotate(43deg);
     width:6px;
     height:6px;
-    left:136rpx;
+    left:140rpx;
 }
 .jt-core1::before {
     position:absolute;
@@ -396,6 +399,52 @@
 text{
     font-weight:700!important;
 }
+
+.index_page_android .icon-before{
+  height:46rpx;
+  line-height:46rpx;
+}
+
+.index_page_android .jt-core:after{
+  left:160rpx!important;
+}
+
+.index_page_android .icon-before, 
+.index_page_android .table-scroll .td-name .moviename, 
+.index_page_android .table-scroll .td text,
+.index_page_android .section_gap .time text {
+  font-size:20rpx!important;
+}
+.index_page_android .table-scroll .td-name .moviename {
+  font-size:22rpx!important;
+}
+.index_page_android .section_gap .title {
+    padding:0 0 0!important;
+}
+.index_page_android .section_gap .time,
+.index_page_android .section_gap .otherinfo .infotxt {
+    position: relative;
+    top: -30rpx;
+}
+.index_page_android .table-scroll .tr .td {
+    min-height:130rpx;
+
+}
+.index_page_android .section_gap .title wx-text{
+    font-size:24rpx!important;
+}
+.index_page_android .section_gap .otherinfo {
+    top: 0rpx;
+}
+
+.index_page_android .table-scroll .td-name .otherinfo,
+.index_page_android .table-scroll .td-name .otherinfo text {
+	font-size: 16rpx;
+}
+.index_page_android .table-scroll .td text {
+	font-size: 26rpx;
+}
+
 
 
 .bc_green{
