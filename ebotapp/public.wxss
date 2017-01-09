@@ -285,3 +285,14 @@ text{
     min-height:130rpx;
 
 }
+
+.width100 {
+    width: 100%;
+}
+.width50 {
+    width: 100%;
+}
+.hover-class {
+    color: #ededed;
+    border-color:#7f1084;
+}

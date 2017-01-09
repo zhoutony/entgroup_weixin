@@ -132,9 +132,9 @@
                                     <text class="purple_7f1084 small-btn">预售</text>
                                 </block>
                                 <block wx:else>
-                                    <text>上映</text>
+                                    上映
                                     <text class="purple_7f1084">{{item.columnList[2]}}</text>
-                                    <text>天</text>
+                                    天
                                 </block>
                             </view>
                             <view wx:elif="{{item.columnList[2] == 1}}" class="otherinfo">
