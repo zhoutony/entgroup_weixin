@@ -33,8 +33,8 @@
 
 .head-center {
     vertical-align: middle;
-    height: 44px;
-    line-height: 44px;
+    height: 100rpx;
+    line-height: 100rpx;
     font-size: 14px
 }
 .head-center em,.head-center span {
@@ -405,7 +405,16 @@ text{
   line-height:46rpx;
 }
 
-.index_page_android .jt-core:after{
+.index_page_android .icon-before{
+  height:46rpx;
+  line-height:46rpx;
+}
+.index_page_android .btn-pre, .index_page_android .btn-next {
+    top: 8px;
+    position: absolute;
+}
+
+/*.index_page_android .jt-core:after{
   left:160rpx!important;
 }
 
@@ -443,6 +452,10 @@ text{
 }
 .index_page_android .table-scroll .td text {
 	font-size: 26rpx;
+}*/
+
+.head-icon {
+    padding:20rpx 0 20rpx;
 }
 
 

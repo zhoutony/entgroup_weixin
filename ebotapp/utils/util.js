@@ -21,6 +21,10 @@ function formatNumber(n) {
 }
 
 function getHundredMillion(num, _units, numstr) {
+    var fixed = 1;
+    if(num < 10000){
+        fixed = 2;
+    }
     if(!_units){
         if (num >= 100000000) {
             return {
@@ -29,16 +33,13 @@ function getHundredMillion(num, _units, numstr) {
             }
         } else {
             return {
-                num: num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(1)),
+                num: num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(fixed)),
                 units: num / 10000 == 0 ? '' : '万'
             }
         }
     }else{
-        if(num < 10000){
-            return num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(2));
-        }else{
-            return num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(1));
-        }
+        return num / 10000 == 0 ? 0 : getFormattedNum((num / 10000).toFixed(fixed));
+
         
     }
 }

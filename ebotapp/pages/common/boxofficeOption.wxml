@@ -5,10 +5,10 @@
             <view class="flexbox-vc comm-top">
                 <view id="selOption_OutBtn" class="head-icon left default-color" bindtap="tapBoxofficeOptionHide">
                     <!--<icon type="clear" size="25"></icon>-->
-                    <text>取消</text>
+                    <text hover-class="hover-class">取消</text>
                 </view>
                 <view class="head-center"></view>
-                <view id="selOption_YesBtn" class="head-icon right mr5 default-color" bindtap="tapBoxofficeOptionConfirm">确认</view>
+                <view id="selOption_YesBtn" class="head-icon right mr5 default-color" bindtap="tapBoxofficeOptionConfirm" hover-class="hover-class">确认</view>
             </view>
             <radio-group class="flexbox-hj flex-wrap box-radio" bindtap="radioChange">
                 <block wx:for-items="{{setSelectIndexGetLists}}" wx:key="{{index}}">

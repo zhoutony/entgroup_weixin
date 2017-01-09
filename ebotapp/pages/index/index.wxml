@@ -7,13 +7,11 @@
    <image style="width: 40rpx; height: 40rpx;top:10rpx;position:absolute;left:20rpx;" src="../../image/icon.png"></image>
    <icon class="search" color="#3e3e3e" type="search" size="25"/>
 </view>-->
-<scroll-view class="{{index_page_android}}" scroll-y="{{isScrollY}}" bindscrolltolower="lower"  style="height:100%;">
+<!--<scroll-view class="{{index_page_android}}" scroll-y="true" bindscrolltolower="lower"  style="height:1000rpx;">-->
+<view class="{{index_page_android}}">
     <template is="movielineAndCity" data="{{_movielineAndCityClass:movielineAndCityClass}}"/>
 
     <template is="boxofficeOption" data="{{_boxofficeOptionClass: boxofficeOptionClass, setSelectIndexGetLists: setSelectIndexGetListOption}}"/>
-
-    <template is="loading" data="{{_hiddenLoading: hiddenLoading, title:'正在加载'}}"/>
-
     <view class="section section_gap swiper">
         <image class="moviebg" src="../../image/moviebg.jpg"></image>
     <view class="icon-before">
@@ -54,13 +52,13 @@
         <view class="choose-warp_data pt0 pb5" style="height: 50rpx;">
             <view id="selDate_PerBtn" style="width: 15% !important;height:60rpx;" class="tal black" bindtap="tapPrevDay">
                 <view class="jt-core1"></view>
-                <text class="btn-pre">前一天</text>
+                <text class="btn-pre" hover-class="hover-class">前一天</text>
             </view>
             <view class="date-choose" style="width: 70% !important;">
                     <text class="fwb" id="selOption_Text">全国大盘</text>
             </view>
             <view id="selDate_NextBtn" style="width: 15% !important;height:60rpx;" class="tal black" bindtap="tapNextDay">
-                <text>后一天</text>
+                <text class="btn-next" hover-class="hover-class">后一天</text>
                 <view class="jt-core1 jt-core2"></view>
             </view>
         </view>
@@ -71,9 +69,10 @@
     </view>
 
     <!--表单-->
-    <template is="movieFormItem" data="{{movie_list: movie_list, setSelectIndexGetLists: setSelectIndexGetLists}}" />
-    
-</scroll-view>
+    <template is="movieFormItem" data="{{movie_list: movie_list, setSelectIndexGetLists: setSelectIndexGetLists, itemClassName: itemClassName}}" />
+<template is="loading" data="{{_hiddenLoading: hiddenLoading, title:'正在加载'}}"/>
+</view>
+<!--</scroll-view>-->
 <!--table-scroll end-->
 
 

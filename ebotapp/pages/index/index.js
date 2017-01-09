@@ -21,7 +21,8 @@ Page({
         isScrollY: true,
         index_page_android: '',
         setSelectIndexGetLists: [],
-        setSelectIndexGetListOption: []
+        setSelectIndexGetListOption: [],
+        itemClassName: ''
     },
     onLoad: function () {
         var that = this;
@@ -29,6 +30,7 @@ Page({
         this.movieList = [];
         this.setSelectIndex = [];
         this.setSelectIndexTemporary = [];
+        this.isNavigateTo = true;
         // wx.setStorage({
         //     key: "selectIndexGetLists",
         //     data: ['201', '202', '606']
@@ -60,7 +62,14 @@ Page({
     },
     ///Shared/_SelectIndex_GetList
     loadSelectIndexGetList: function(){
-        var that = this;
+        var that = this,
+            len = that.setSelectIndex.length,
+            itemClassName = '';
+        if(len == 1){
+            itemClassName = 'width100';
+        }else if(len == 2){
+            itemClassName = 'width50';
+        }
         var param = {
             _PageUrl: '/Movie/Index',
             _PageType:'Day'
@@ -70,7 +79,10 @@ Page({
                 var selectIndexGetLists = that.selectIndexMethod(result, that.setSelectIndex);
                 that.setData({
                     setSelectIndexGetLists: selectIndexGetLists,
-                    setSelectIndexGetListOption: selectIndexGetLists
+                    setSelectIndexGetListOption: selectIndexGetLists,
+                    movie_list: that.movieList,
+                    hiddenLoading: true,
+                    itemClassName: itemClassName
                 })
             }catch(err){
                 console.log(err)
@@ -136,9 +148,7 @@ Page({
                 that.movieList = that.movieList.concat( movie_list );
                 that.setData({
                     totalBoxOffice: _totalBoxOffice.num,
-                    totalBoxOfficeUnits: _totalBoxOffice.units,
-                    movie_list: that.movieList,
-                    hiddenLoading: true
+                    totalBoxOfficeUnits: _totalBoxOffice.units
                 })
                 that.loadSelectIndexGetList();
             }catch(err){
@@ -219,10 +229,18 @@ Page({
     // 跳转到影片详情页
     gotomoviedetail: function(e){
         var el = e.currentTarget,
-            entid = el.id;
-        wx.navigateTo({
-            url: '../moviedetail/moviedetail?entid=' + entid
-        })
+            entid = el.id,
+            that = this;
+        if(that.isNavigateTo){
+            that.isNavigateTo = false;
+            wx.navigateTo({
+                url: '../moviedetail/moviedetail?entid=' + entid,
+                complete: function(){
+                    that.isNavigateTo = true;
+                }
+            })
+        }
+        this.clickTime = time;
     },
     // 监听点击筛选按钮
     tapShowScreen: function(e) {
@@ -242,13 +260,13 @@ Page({
         wx.stopPullDownRefresh();
         this.onLoad();
     },
-    // 监听滚动到底部
-    lower: function(e){
-        if(this.pageIndex <= this.totalPage){
-            this.pageIndex += 1;
-            this._loadData();
-        }
-    },
+    // // 监听滚动到底部
+    // lower: function(e){
+    //     if(this.pageIndex <= this.totalPage){
+    //         this.pageIndex += 1;
+    //         this._loadData();
+    //     }
+    // },
     // 监听点击更多指标按钮
     radioChange: function(e){
         var selected = e.target.dataset.selected,
@@ -284,6 +302,19 @@ Page({
     },
     // 监听点击更多指标按钮 确定
     tapBoxofficeOptionConfirm: function(e){
+        var len = this.setSelectIndexTemporary.length;
+        if(len <= 0){
+            wx.showToast({
+                title: '至少选择一项指标',
+                duration: 5000
+            })
+
+            setTimeout(function(){
+                wx.hideToast()
+            },2000)
+            return;
+        }
+
         this.setSelectIndex = this.setSelectIndexTemporary.join().split(',');
         var selectIndexGetLists = this.selectIndexMethod(this.data.setSelectIndexGetLists, this.setSelectIndex);
         this.setData({
@@ -311,7 +342,7 @@ Page({
             selectLen = setSelectIndex.length,
             selectIndexId, item, index,
             that = this,
-            movieList = this.data.movie_list,
+            movieList = this.movieList,
             movieListLen = movieList.length;
         this.selectIndexNames = {};
         for(var i = 0; i < len; i++){
@@ -331,9 +362,9 @@ Page({
             });
         }
         that.movieList = movieList;
-        that.setData({
-            movie_list: movieList
-        })
+        // that.setData({
+        //     movie_list: movieList
+        // })
         return SelectIndexs;
     }
 })
