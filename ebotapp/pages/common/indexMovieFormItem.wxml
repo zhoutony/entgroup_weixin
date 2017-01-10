@@ -60,10 +60,10 @@
             </view>
             <!--fixed end-->
             <view class="flex-1 table-content">
-            <scroll-view class="table " scroll-x="true" style="width:100%">
+            <scroll-view class="table " scroll-x="true" scroll-y="true"  style="width:100%; height:100%;" >
                     <view class="tr flexbox-vc flex-wrap-nwrap small_tr"  >
                         <block wx:for-items="{{setSelectIndexGetLists}}" wx:key="{{index}}">
-                            <view wx:if="{{item.selected}}" data-indexID="{{item.IndexID}}" class="td">
+                            <view wx:if="{{item.selected}}" data-indexID="{{item.IndexID}}" class="td {{itemClassName}}">
                                 <text>{{item.IndexText}}</text>
                             </view>
                         </block>
@@ -71,43 +71,43 @@
                     <!--tr end-->
                     <block wx:for-items="{{movie_list}}" wx:key="{{index}}">
                         <view class=" flexbox-vc  tr" id="{{item.EntMovieID}}" bindtap="gotomoviedetail" >
-                            <view wx:if="{{item.isBoxOffice}}" class="td  ">
+                            <view wx:if="{{item.isBoxOffice}}" class="td {{itemClassName}}">
                                 <text>{{item.BoxOffice}}</text>
                             </view>
-                            <view wx:if="{{item.isShowCount}}" class="td">
+                            <view wx:if="{{item.isShowCount}}" class="td {{itemClassName}}">
                                 <text>{{item.ShowCount}}</text>
                             </view>
-                            <view wx:if="{{item.isAudienceCount}}" class="td">
+                            <view wx:if="{{item.isAudienceCount}}" class="td {{itemClassName}}">
                                 <text>{{item.AudienceCount}}</text>
                             </view>
-                            <view wx:if="{{item.isOfferSeat}}" class="td">
+                            <view wx:if="{{item.isOfferSeat}}" class="td {{itemClassName}}">
                                 <text>{{item.OfferSeat}}</text>
                             </view>
-                            <view wx:if="{{item.isSumBoxOffice}}" class="td">
+                            <view wx:if="{{item.isSumBoxOffice}}" class="td {{itemClassName}}">
                                 <text>{{item.SumBoxOffice}}</text>
                             </view>
-                            <view wx:if="{{item.isBoxPercent}}" class="td">
+                            <view wx:if="{{item.isBoxPercent}}" class="td {{itemClassName}}">
                                 <text>{{item.BoxPercent}}</text>
                             </view>
-                            <view wx:if="{{item.isShowPercent}}" class="td">
+                            <view wx:if="{{item.isShowPercent}}" class="td {{itemClassName}}">
                                 <text>{{item.ShowPercent}}</text>
                             </view>
-                            <view wx:if="{{item.isOfferSeatPercent}}" class="td">
+                            <view wx:if="{{item.isOfferSeatPercent}}" class="td {{itemClassName}}">
                                 <text>{{item.OfferSeatPercent}}</text>
                             </view>
-                            <view wx:if="{{item.isAvgBoxOffice}}" class="td">
+                            <view wx:if="{{item.isAvgBoxOffice}}" class="td {{itemClassName}}">
                                 <text>{{item.AvgBoxOffice}}</text>
                             </view>
-                            <view wx:if="{{item.isLineBoxPercent}}" class="td">
+                            <view wx:if="{{item.isLineBoxPercent}}" class="td {{itemClassName}}">
                                 <text>{{item.LineBoxPercent}}</text>
                             </view>
-                            <view wx:if="{{item.isOnLineBoxPercent}}" class="td">
+                            <view wx:if="{{item.isOnLineBoxPercent}}" class="td {{itemClassName}}">
                                 <text>{{item.OnLineBoxPercent}}</text>
                             </view>
-                            <view wx:if="{{item.isAvgShowPeople}}" class="td">
+                            <view wx:if="{{item.isAvgShowPeople}}" class="td {{itemClassName}}">
                                 <text>{{item.AvgShowPeople}}</text>
                             </view>
-                            <view wx:if="{{item.isAttendance}}" class="td">
+                            <view wx:if="{{item.isAttendance}}" class="td {{itemClassName}}">
                                 <text>{{item.Attendance}}</text>
                             </view>
                         </view>

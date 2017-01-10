@@ -48,7 +48,7 @@ Page({
             releaseClassName = 'm-hide',
             boxOfficePointClassName = 'm-hide';
 
-        data.ReleaseDays < 0 ? boxOfficePointClassName = '' : (data.BoxOfficePoint ? releaseClassName = '' : comingClassName = '');
+        data.ReleaseDays > 0 ? releaseClassName = '' : (data.BoxOfficePoint ? boxOfficePointClassName = '' : comingClassName = '');
 
         data._BoxOfficeToTal = utils.getHundredMillion(data.BoxOfficeToTal);
         data._BoxOfficePoint = utils.getHundredMillion(data.BoxOfficePoint);
@@ -58,7 +58,7 @@ Page({
         
 
         data.Event = data1.Event ? utils.getFormattedNum(data1.Event) : '-';
-        data.PlaneNews = data.PlaneNews ? utils.getFormattedNum(data1.PlaneNews) : '-';
+        data.PlaneNews = data1.PlaneNews ? utils.getFormattedNum(data1.PlaneNews) : '-';
         data.MoviePhoto = data1.MoviePhoto ? utils.getFormattedNum(data1.MoviePhoto) : '-';
         data.MateriaVideo = data1.MateriaVideo ? utils.getFormattedNum(data1.MateriaVideo) : '-';
         data.Weibo = data1.Weibo ? utils.getFormattedNum(data1.Weibo) : '-';
@@ -72,6 +72,7 @@ Page({
         })
         // that.getCinameLine(data.DBOMovieID);
         that.dBOMovieID = data.DBOMovieID;
+        that.EFMTMovieID = data.EFMTMovieID;
         that.ReleaseDate = data.ReleaseDate;
         that.getTimeIntervalList(data.DBOMovieID);
         that.getMovieEventList(data.EFMTMovieID);
@@ -105,12 +106,12 @@ Page({
                     data2Len = data2.length,
                     item;
                 lineLists.data1[0].SumBoxOffice = utils.getHundredMillion (lineLists.data1[0].SumBoxOffice, '万');
-                lineLists.data1[0].BoxPercent = lineLists.data1[0].BoxPercent ? lineLists.data1[0].BoxPercent : '-';
+                lineLists.data1[0].BoxPercent = lineLists.data1[0].BoxPercent ? lineLists.data1[0].BoxPercent.toFixed(1) + '%' : '-';
 
                 for(var i = 0; i < data2Len; i++){
                     item = data2[i];
                     item.BoxOffice = utils.getHundredMillion (item.BoxOffice, '万');
-                    item.BoxPercent = item.BoxPercent ? item.BoxPercent : '-';
+                    item.BoxPercent = item.BoxPercent ? item.BoxPercent.toFixed(1) + '%' : '-';
                     data2[i] = item;
                 }
                 lineLists.data2 = data2;
@@ -152,13 +153,13 @@ Page({
                 item;
             lists.data1[0].SumBoxOffice = lists.data1[0].SumBoxOffice ? utils.getHundredMillion (lists.data1[0].SumBoxOffice, '万') : '-';
             lists.data1[0].ShowPercent = lists.data1[0].ShowPercent ? lists.data1[0].ShowPercent.toFixed(1) + '%' : '-';
-            lists.data1[0].BoxPercent = lists.data1[0].BoxPercent ? lists.data1[0].BoxPercent : '-';
+            lists.data1[0].BoxPercent = lists.data1[0].BoxPercent ? lists.data1[0].BoxPercent.toFixed(1) + '%' : '-';
 
             for(var i = 0; i < data2Len; i++){
                 item = data2[i];
                 item.BoxOffice = utils.getHundredMillion (item.BoxOffice, '万');
                 item.ShowPercent = item.ShowPercent ? item.ShowPercent.toFixed(1) + '%' : '-';
-                item.BoxPercent = item.BoxPercent ? item.BoxPercent : '-';
+                item.BoxPercent = item.BoxPercent ? item.BoxPercent.toFixed(1) + '%' : '-';
                 item.columnList = item.ColumnList ?  item.ColumnList.split('|') : [];
                 item.isAppointment = new Date(item.columnList[0] + ' 00:00:00') * 1 > new Date(that.data.date + ' 00:00:00') * 1 ? true : false;
                 data2[i] = item;
@@ -213,7 +214,7 @@ Page({
             current = el.dataset.current;
         if(current == 0){
             this.getTimeIntervalList(this.dBOMovieID)
-            this.getMovieEventList(this.dBOMovieID);
+            this.getMovieEventList(this.EFMTMovieID);
             this.setData({
                 movietimeclass: 'current',
                 movielineclass: '',
