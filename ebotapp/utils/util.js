@@ -118,6 +118,20 @@ function getFormattedNum (num) {
     return String(num).replace(/\B(?=(?:\d{3})+\b)/g, ',');
 }
 
+/**
+ * @param {String} 格式化字符串
+ * @return {String} 星期几
+ */
+function _getDay(_dateStr) {
+    var _date = new Date(_dateStr),
+        _day = _date.getDay(),
+        _dayMap = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+
+    return _dayMap[_day];
+}
+
+
+
 module.exports = {
   formatTime: formatTime,
   getHundredMillion: getHundredMillion,
@@ -126,5 +140,6 @@ module.exports = {
   nextDay: nextDay,
   getIndexDaysStr: getIndexDaysStr,
   isEqualDays: isEqualDays,
-  getFormattedNum: getFormattedNum
+  getFormattedNum: getFormattedNum,
+  _getDay: _getDay
 }
