@@ -63,6 +63,7 @@
             </view>
         </view>
         <view class="default-color pb10">
+            <text class="fwb" style="font-size:16rpx!important;color:#7f1084;">{{weekData}}</text>
             <text class="default-color pb10 h3" id="sumBoxOffice_Info">{{totalBoxOffice}}</text>
             <text class="h6">{{totalBoxOfficeUnits}}</text>
         </view>

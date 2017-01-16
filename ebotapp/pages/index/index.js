@@ -22,7 +22,8 @@ Page({
         index_page_android: '',
         setSelectIndexGetLists: [],
         setSelectIndexGetListOption: [],
-        itemClassName: ''
+        itemClassName: '',
+        weekData: ''
     },
     onLoad: function () {
         var that = this;
@@ -95,7 +96,8 @@ Page({
             hiddenLoading: false
         })
         var that = this,
-            toDay = this.data.date;
+            _day = this.data.date,
+            toDay = utils.formatTime( new Date );
         
         var param = {
             _IsChart: 0,
@@ -103,10 +105,10 @@ Page({
             _OrderType: 'DESC',
             _PageIndex: this.pageIndex,
             _PageSize: 50,
-            _Date: toDay,
+            _Date: _day,
             _DateSort: 'Day',
-            _sDate: toDay,
-            _eDate: toDay,
+            _sDate: _day,
+            _eDate: _day,
             _Line: '',
             _City: '',
             _CityLevel: '',
@@ -126,7 +128,7 @@ Page({
                 for(var i = 0; i < movieListLen; i++){
                     item = movie_list[i];
                     columnList = item.ColumnList ?  item.ColumnList.split('|') : [];
-                    item.ReleaseDate = utils.getIndexDaysStr(toDay, -(columnList[3]));
+                    item.ReleaseDate = utils.getIndexDaysStr(_day, -(columnList[3]));
                     item.movieName = columnList[2];
                     item.movieTotalBoxOffices = utils.getHundredMillion(columnList[4]);
                     item.BoxOffice = item.BoxOffice ? utils.getHundredMillion(item.BoxOffice, '万') : '-';
@@ -147,6 +149,7 @@ Page({
                 }
                 that.movieList = that.movieList.concat( movie_list );
                 that.setData({
+                    weekData: that.getDayData(toDay, _day),
                     totalBoxOffice: _totalBoxOffice.num,
                     totalBoxOfficeUnits: _totalBoxOffice.units
                 })
@@ -367,5 +370,19 @@ Page({
         //     movie_list: movieList
         // })
         return SelectIndexs;
+    },
+
+    getDayData: function(today, _dateStr) {
+        var _date = new Date(today),
+            _date1 = new Date(_dateStr),
+            _dataNum = _date * 1,
+            _dataNum1 = _date1 * 1;
+        if(_dataNum1 > _dataNum){
+            return utils._getDay(_dateStr) + '预售';
+        }else if(_dataNum1 == _dataNum){
+            return '今日票房';
+        }else{
+            return utils._getDay(_dateStr);
+        }
     }
 })

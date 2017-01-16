@@ -237,7 +237,7 @@
     color: #7f1084;
 }
 .h6 {
-    font-size: 24rpx!important;
+    font-size: 16rpx!important;
     color: #7f1084;
 }
 

@@ -116,12 +116,14 @@ Page({
                 }
                 lineLists.data2 = data2;
                 that.setData({
-                    lineLists: lineLists,
-                    hiddenLoading: true
+                    lineLists: lineLists
                 })
             }catch(err){
                 console.log(err)
             }
+            that.setData({
+                hiddenLoading: true
+            })
         });
     },
 
