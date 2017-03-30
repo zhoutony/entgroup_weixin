@@ -18,7 +18,7 @@
         <text>即将上映</text>
     </view> 
         <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" circular="true" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for-items="{{comingMovieList}}">
+        <block wx:for-items="{{comingMovieList}}" wx:key="{{idx}}">
             <swiper-item>
                 <view class="swiper-item" id="{{item.EnMovieID}}" bindtap="gotomoviedetail">
                     <view class="title">

@@ -27,7 +27,7 @@
                     <view class="td td-name">
                         <text class="moviename">{{item.MovieName}}</text>
                         <view wx:if="{{item._columnList[3] > 1}}" class="otherinfo">
-                            <block wx:if="{{item._columnList[3] >= 90}}">
+                            <block wx:if="{{item._columnList[3] >= 90}}" wx:key="{{idx}}">
                                 <text class="purple_7f1084">{{item.ReleaseDate}}</text>
                                 累计
                                 <text class="purple_7f1084">{{item.movieTotalBoxOffices.num}}</text>
@@ -60,7 +60,7 @@
             </view>
             <!--fixed end-->
             <view class="flex-1 table-content">
-            <scroll-view class="table " scroll-x="true" scroll-y="true"  style="width:100%; height:100%;" >
+            <scroll-view class="table " scroll-x="true"  style="width:100%; height:100%;" >
                     <view class="tr flexbox-vc flex-wrap-nwrap small_tr"  >
                         <block wx:for-items="{{setSelectIndexGetLists}}" wx:key="{{index}}">
                             <view wx:if="{{item.selected}}" data-indexID="{{item.IndexID}}" class="td {{itemClassName}}">
